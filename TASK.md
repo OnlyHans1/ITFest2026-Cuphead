@@ -1,0 +1,2 @@
+- Selalu hapus cache setiap push kedalam github agar cache dari antigravity hilang
+- Gunakan background dan runtutkan boss dari boss pertama

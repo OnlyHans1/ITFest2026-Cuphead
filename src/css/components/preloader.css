@@ -1,0 +1,185 @@
+.preloader-screen {
+  position: fixed;
+  inset: 0;
+  z-index: 10000;
+  background-color: #060504;
+  background-image: 
+    radial-gradient(circle at 50% 50%, rgba(20, 18, 14, 0.9) 0%, rgba(5, 4, 3, 1) 100%);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), visibility 0.8s;
+}
+
+.preloader-screen.is-loaded {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+}
+
+.preloader-stage {
+  position: relative;
+  width: 100%;
+  max-width: 760px;
+  height: 480px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.preloader-spotlight {
+  position: absolute;
+  top: 42%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 520px;
+  height: 260px;
+  border-radius: 50%;
+  background: radial-gradient(
+    ellipse at center,
+    rgba(145, 168, 185, 0.35) 0%,
+    rgba(100, 125, 145, 0.22) 35%,
+    rgba(40, 55, 68, 0.08) 65%,
+    transparent 80%
+  );
+  filter: blur(14px);
+  pointer-events: none;
+  animation: spotlightBreathe 3s ease-in-out infinite alternate;
+}
+
+.preloader-menu-container {
+  margin-bottom: var(--space-lg);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-xs);
+  z-index: 2;
+}
+
+.preloader-menu-item {
+  font-family: var(--font-display);
+  font-size: 1.4rem;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.35);
+  text-shadow: 0 0 1px rgba(0, 0, 0, 0.8);
+  transition: var(--transition-fast);
+  cursor: pointer;
+  user-select: none;
+}
+
+.preloader-menu-item.active {
+  color: #FFFFFF;
+  text-shadow: 
+    -1px 0px 0px rgba(255, 60, 60, 0.7),
+    1px 0px 0px rgba(60, 220, 255, 0.7),
+    0 0 10px rgba(255, 255, 255, 0.6);
+  animation: textFlicker 1.8s infinite alternate;
+}
+
+.preloader-cup-wrap {
+  position: relative;
+  z-index: 2;
+  width: 240px;
+  margin-top: -10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.preloader-cup-img {
+  width: 100%;
+  height: auto;
+  filter: drop-shadow(0 15px 25px rgba(0, 0, 0, 0.95)) drop-shadow(0 0 8px rgba(180, 210, 230, 0.25));
+  animation: cupSlightWobble 4s ease-in-out infinite alternate;
+}
+
+.preloader-status {
+  margin-top: var(--space-lg);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-sm);
+  z-index: 2;
+}
+
+.preloader-bar-bg {
+  width: 220px;
+  height: 10px;
+  border: 2px solid rgba(255, 255, 255, 0.6);
+  background: rgba(0, 0, 0, 0.7);
+  box-shadow: 0 0 8px rgba(0, 0, 0, 0.8);
+  padding: 1px;
+}
+
+.preloader-bar-fill {
+  height: 100%;
+  width: 0%;
+  background: var(--color-crimson);
+  transition: width 0.2s ease-out;
+}
+
+.preloader-prompt {
+  font-family: var(--font-display);
+  font-size: 0.95rem;
+  letter-spacing: 1.5px;
+  color: rgba(255, 255, 255, 0.75);
+  display: flex;
+  align-items: center;
+  gap: var(--space-xs);
+}
+
+.preloader-btn-a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: #399147;
+  color: #FFFFFF;
+  font-size: 0.75rem;
+  font-weight: bold;
+  box-shadow: 0 0 6px rgba(57, 145, 71, 0.8);
+}
+
+.preloader-start-btn {
+  margin-top: var(--space-sm);
+  padding: 0.5rem 1.5rem;
+  background: var(--color-crimson);
+  color: var(--color-cream);
+  font-family: var(--font-display);
+  font-size: 1rem;
+  border: 2px solid #FFFFFF;
+  box-shadow: 3px 3px 0px rgba(0, 0, 0, 0.8);
+  cursor: pointer;
+  letter-spacing: 1px;
+  transition: var(--transition-fast);
+}
+
+.preloader-start-btn:hover {
+  transform: translate(-1px, -1px);
+  box-shadow: 4px 4px 0px rgba(0, 0, 0, 0.9);
+  background: #E03239;
+}
+
+@keyframes spotlightBreathe {
+  0% { transform: translate(-50%, -50%) scale(0.96); opacity: 0.7; }
+  100% { transform: translate(-50%, -50%) scale(1.04); opacity: 0.95; }
+}
+
+@keyframes cupSlightWobble {
+  0% { transform: rotate(0deg) translateY(0); }
+  50% { transform: rotate(-1deg) translateY(-2px); }
+  100% { transform: rotate(1deg) translateY(1px); }
+}
+
+@keyframes textFlicker {
+  0%, 100% { opacity: 1; }
+  45% { opacity: 0.92; }
+  48% { opacity: 0.65; }
+  52% { opacity: 0.95; }
+}

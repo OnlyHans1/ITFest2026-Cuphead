@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CUPHEAD — A Debt Worth Dying For | 1930s Showcase</title>
+  <meta name="description" content="Website tribute fan-made Cuphead - Pengalaman landing page storytelling interaktif bergaya televisi kartun 1930-an.">
+
+  <link rel="stylesheet" href="./css/main.css">
+
+  <script src="https://cdn.jsdelivr.net/npm/lenis@1.1.13/dist/lenis.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+</head>
+<body class="tv-screen-wrapper">
+
+  <div id="preloader" class="preloader-screen">
+    <div class="preloader-stage">
+      <div class="preloader-spotlight"></div>
+      
+      <div class="preloader-menu-container">
+        <div class="preloader-menu-item active">START</div>
+        <div class="preloader-menu-item">OPTIONS</div>
+        <div class="preloader-menu-item">EXIT</div>
+      </div>
+
+      <div class="preloader-cup-wrap">
+        <img src="./assets/web/preloader-cup.png" alt="Cuphead Porcelain Cup" class="preloader-cup-img">
+      </div>
+
+      <div class="preloader-status">
+        <div class="preloader-bar-bg">
+          <div id="preloader-bar" class="preloader-bar-fill"></div>
+        </div>
+        <div id="preloader-prompt" class="preloader-prompt">
+          <span>NOW LOADING REEL</span>
+          <span id="preloader-percent">0%</span>
+        </div>
+        <button id="preloader-start-btn" class="preloader-start-btn" style="display: none;">
+          <span class="preloader-btn-a">A</span> ROLL FILM
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <div class="tv-scanlines" aria-hidden="true"></div>
+  <div class="tv-vignette" aria-hidden="true"></div>
+  <div class="film-scratch" aria-hidden="true"></div>
+  <div class="film-scratch-secondary" aria-hidden="true"></div>
+  <div class="film-grain" aria-hidden="true"></div>
+
+  <header class="site-header">
+    <div class="container nav-container">
+      <a href="#hero" class="brand-link">
+        <img src="./assets/web/logo.png" alt="Cuphead Devil Emblem" style="height: 34px; width: auto;">
+        <span>CUPHEAD</span>
+      </a>
+      <nav>
+        <ul class="nav-links">
+          <li><a href="#hero" class="nav-link active">Home</a></li>
+          <li><a href="#trailer" class="nav-link">Trailer</a></li>
+          <li><a href="#story" class="nav-link">Story</a></li>
+          <li><a href="#characters" class="nav-link">Characters</a></li>
+          <li><a href="#gameplay" class="nav-link">Gameplay</a></li>
+          <li><a href="#dlc" class="nav-link">DLC</a></li>
+          <li><a href="#play" class="nav-link" style="color: var(--color-crimson);">Play Now</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section id="hero" class="hero-section">
+      <div class="hero-backdrop-glow"></div>
+      <img src="./assets/web/logo.png" alt="Devil Silhouette" class="hero-devil-silhouette">
+
+      <div class="hero-content">
+        <div class="hero-badge">Original 1930s Cartoon Experience</div>
+
+        <div class="hero-title-img-wrap">
+          <img src="./assets/web/hero.png" alt="CUPHEAD Don't Deal With The Devil" class="hero-title-img">
+        </div>
+
+        <p class="hero-tagline">
+          Selamat datang di Inkwell Isles. Lintasi pertarungan bos kartun legendaris bergaya animasi hand-drawn era 1930-an, diiringi rekaman musik jazz big band orisinal.
+        </p>
+
+        <div class="hero-actions">
+          <a href="#trailer" class="btn-primary">Tonton Trailer &rarr;</a>
+          <a href="#characters" class="btn-secondary">Kenali Karakter</a>
+        </div>
+
+        <div class="hero-cuphead-sprite-wrap">
+          <img src="./assets/images/Cuphead/cuphead_idle_0001.png" alt="Cuphead Ready" class="hero-cuphead-sprite">
+        </div>
+      </div>
+    </section>
+
+    <section id="trailer" class="trailer-section container">
+      <div class="section-header">
+        <span class="section-tag">Cinematic Reel</span>
+        <h2 class="section-title">OFFICIAL MOTION PICTURE TRAILER</h2>
+        <p class="section-desc">Saksikan aksi run-and-gun berkecepatan tinggi dalam frame proyektor vintage 1930-an.</p>
+      </div>
+
+      <div class="trailer-tv-cabinet">
+        <div class="trailer-screen-outer">
+          <iframe 
+            class="trailer-iframe-element" 
+            src="https://www.youtube-nocookie.com/embed/NN-9SQXoi50?rel=0&modestbranding=1" 
+            title="Cuphead Official Launch Trailer" 
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+            allowfullscreen>
+          </iframe>
+          <div class="trailer-screen-glare"></div>
+        </div>
+
+        <div class="trailer-controls-mock">
+          <span class="tv-brand-label">INKWELL SOUND & VISION CORP.</span>
+          <div class="tv-knobs">
+            <span class="tv-knob"></span>
+            <span class="tv-knob"></span>
+          </div>
+        </div>
+      </div>
+
+      <div class="trailer-caption-card">
+        <div class="trailer-caption-header">
+          <span class="trailer-caption-badge">ACT I</span>
+          <span>Motion Picture Reel No. 1936 — Studio MDHR Productions</span>
+        </div>
+        <p class="trailer-caption-text">
+          Cuplikan resmi petualangan Cuphead dan Mugman saat menjelajahi hutan belantara Inkwell Isles, menembus rentetan peluru musuh, dan menantang bos-bos raksasa demi melunasi hutang jiwa kepada sang Iblis.
+        </p>
+      </div>
+    </section>
+
+    <section id="story" class="story-section container">
+      <div class="story-card">
+        <div class="story-text">
+          <span class="section-tag">The Lore</span>
+          <h3>TARUHAN BERBAHAYA DI DEVIL'S CASINO</h3>
+          <p>
+            Di sebuah pulau terpencil bernama Inkwell Isle, Cuphead dan saudaranya Mugman hidup damai di bawah asuhan Elder Kettle yang bijak. Namun sebuah keisengan membawa mereka masuk ke dalam kasino megah milik sang Iblis.
+          </p>
+          <p>
+            Setelah memenangkan rentetan taruhan, sang Iblis menawarkan sebuah perjanjian: menangkan satu lemparan dadu lagi untuk merebut seluruh kekayaan kasino, atau serahkan jiwa mereka jika kalah. Dadu dilempar, dan malapetaka dimulai!
+          </p>
+          <a href="#gameplay" class="btn-primary" style="font-size: 0.95rem; padding: 0.6rem 1.2rem;">Pelajari Mekanik Permainan</a>
+        </div>
+        <div class="story-image-wrap">
+          <img src="./assets/images/Cuphead/player_ch_scared_0001.png" alt="Cuphead Scared" class="story-image">
+        </div>
+      </div>
+    </section>
+
+    <section id="characters" class="characters-section container">
+      <div class="section-header">
+        <span class="section-tag">Cast & Heroes</span>
+        <h2 class="section-title">THE INKWELL ENSEMBLE</h2>
+        <p class="section-desc">Pahlawan bertangan lincah dan penghuni pulau unik yang mewarnai setiap sudut dunia kartun.</p>
+      </div>
+
+      <div class="character-grid">
+        <article class="character-card">
+          <div class="character-avatar-wrap">
+            <img src="./assets/images/Cuphead/cuphead_shoot_straight_0001.png" alt="Cuphead" class="character-avatar">
+          </div>
+          <div class="character-details">
+            <span class="character-role">Protagonist</span>
+            <h3 class="character-name">CUPHEAD</h3>
+            <p class="character-desc">Pemberani, nekat, dan berjas celana merah. Mengandalkan tembakan peashooter cepat dari ujung jarinya.</p>
+          </div>
+        </article>
+
+        <article class="character-card">
+          <div class="character-avatar-wrap">
+            <img src="./assets/images/Delicious Last Course - A Dish to Die For/Shot 1 + 3/Mugman/A/prelastboss_cutscene_mugman_0001a.png" alt="Mugman" class="character-avatar">
+          </div>
+          <div class="character-details">
+            <span class="character-role">Brother in Arms</span>
+            <h3 class="character-name">MUGMAN</h3>
+            <p class="character-desc">Saudara berkepala cangkir biru yang lebih waspada dan selalu mendampingi dalam petualangan berbahaya.</p>
+          </div>
+        </article>
+
+        <article class="character-card">
+          <div class="character-avatar-wrap">
+            <img src="./assets/images/Delicious Last Course - A Dish to Die For/Shot 1 + 3/Ms. Chalice/A/prelastboss_cutscene_chalice_0001a.png" alt="Ms. Chalice" class="character-avatar">
+          </div>
+          <div class="character-details">
+            <span class="character-role">Legendary Chalice</span>
+            <h3 class="character-name">MS. CHALICE</h3>
+            <p class="character-desc">Pemberani dengan kemampuan double jump, dash parry khusus, dan roll kebal serangan.</p>
+          </div>
+        </article>
+
+        <article class="character-card">
+          <div class="character-avatar-wrap">
+            <img src="./assets/images/Chef Saltbaker/Idle/NPC_saltbaker_0001.png" alt="Chef Saltbaker" class="character-avatar">
+          </div>
+          <div class="character-details">
+            <span class="character-role">Master Baker</span>
+            <h3 class="character-name">CHEF SALTBAKER</h3>
+            <p class="character-desc">Koki ramah pemilik toko roti legendaris di pulau ke-4 yang mencari resep Wondertart ajaib.</p>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section id="gameplay" class="gameplay-section container">
+      <div class="section-header">
+        <span class="section-tag">Core Mechanics</span>
+        <h2 class="section-title">MASTER THE CARTOON BATTLE</h2>
+        <p class="section-desc">Kecepatan reaksi, ketepatan manuver udara, dan reflek parry adalah kunci bertahan hidup.</p>
+      </div>
+
+      <div class="gameplay-grid">
+        <article class="gameplay-card">
+          <div class="gameplay-icon-wrap">
+            <img src="./assets/images/Cuphead/cuphead_parry_pink_0001.png" alt="Parry Slap" class="gameplay-icon">
+          </div>
+          <h3 class="gameplay-title">PINK PARRY SLAP</h3>
+          <p class="gameplay-desc">Tangkis semua proyektil berwarna merah muda di udara untuk mengisi EX meter dan melancarkan jurus mematikan.</p>
+        </article>
+
+        <article class="gameplay-card">
+          <div class="gameplay-icon-wrap">
+            <img src="./assets/images/Cuphead/cuphead_super_beam_0001.png" alt="Super Attack" class="gameplay-icon">
+          </div>
+          <h3 class="gameplay-title">SUPER BEAM I</h3>
+          <p class="gameplay-desc">Tembakkan semburan energi berkekuatan penuh dari cangkir untuk meremukkan pertahanan bos terkuat.</p>
+        </article>
+
+        <article class="gameplay-card">
+          <div class="gameplay-icon-wrap">
+            <img src="./assets/images/Cuphead/cuphead_run_shoot_0001.png" alt="Run and Gun" class="gameplay-icon">
+          </div>
+          <h3 class="gameplay-title">RUN & GUN PRECISION</h3>
+          <p class="gameplay-desc">Terobos barikade musuh dengan tembakan tanpa henti sambil melompati rintangan berkecepatan tinggi.</p>
+        </article>
+
+        <article class="gameplay-card">
+          <div class="gameplay-icon-wrap">
+            <img src="./assets/images/Cuphead/cuphead_dash_0001.png" alt="Dash Maneuver" class="gameplay-icon">
+          </div>
+          <h3 class="gameplay-title">SMOKE DASH</h3>
+          <p class="gameplay-desc">Gunakan dash udara untuk melewati celah sempit di antara ribuan peluru tanpa terkena satu sentuhan pun.</p>
+        </article>
+      </div>
+    </section>
+
+    <section id="dlc" class="dlc-section container">
+      <div class="dlc-banner-card" style="background-image: url('./assets/images/Saltbaker\'s Bakery/Bakery/12-bakery_bg_main.png');">
+        <div class="dlc-overlay-content">
+          <span class="dlc-badge">Expansions & DLC</span>
+          <h2 class="dlc-title">THE DELICIOUS LAST COURSE</h2>
+          <p class="dlc-desc">
+            Jelajahi D.L.C. Isle yang serba baru bersama Ms. Chalice, lengkapi persenjataan baru, dan temukan rahasia di balik resep ajaib Chef Saltbaker dalam pertempuran epik terbesar di dunia Cuphead.
+          </p>
+          <a href="#play" class="btn-primary">Dapatkan Sekarang &rarr;</a>
+        </div>
+      </div>
+    </section>
+
+    <section id="play" class="play-section container">
+      <div class="section-header">
+        <span class="section-tag">Official Releases</span>
+        <h2 class="section-title">READY TO ROLL THE DICE?</h2>
+        <p class="section-desc">Mainkan game orisinal Cuphead langsung melalui distributor dan toko game resmi favorit Anda:</p>
+      </div>
+
+      <div class="platform-grid">
+        <a href="https://store.steampowered.com/app/268910/Cuphead/" target="_blank" rel="noopener noreferrer" class="platform-card">
+          Steam Store &rarr;
+        </a>
+        <a href="https://www.xbox.com/en-US/games/store/cuphead/9NJ46SXPBW90" target="_blank" rel="noopener noreferrer" class="platform-card">
+          Xbox One / Series &rarr;
+        </a>
+        <a href="https://store.playstation.com/en-us/product/UP8062-CUSA20499_00-CUPHEAD000000001" target="_blank" rel="noopener noreferrer" class="platform-card">
+          PlayStation 4/5 &rarr;
+        </a>
+        <a href="https://www.nintendo.com/us/store/products/cuphead-switch/" target="_blank" rel="noopener noreferrer" class="platform-card">
+          Nintendo Switch &rarr;
+        </a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <p class="footer-disclaimer">
+        Cuphead © Studio MDHR. Fan-made tribute, tidak berafiliasi resmi. Dibuat untuk Lomba Web Development IT FEST 2026.
+      </p>
+      <p class="footer-credits">
+        IT FEST 2026 WEB DEV COMPETITION — CRAFTED WITH 1930S CARTOON PASSION
+      </p>
+    </div>
+  </footer>
+
+  <script type="module" src="./js/main.js"></script>
+</body>
+</html>

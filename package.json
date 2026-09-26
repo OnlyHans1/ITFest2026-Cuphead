@@ -1,0 +1,14 @@
+{
+  "name": "cuphead-tribute",
+  "version": "1.0.0",
+  "description": "Website tribute fan-made Cuphead - Lomba Web Development IT FEST 2026",
+  "scripts": {
+    "dev": "serve src -l 3000",
+    "start": "serve src -l 3000",
+    "detect": "impeccable detect src/"
+  },
+  "devDependencies": {
+    "impeccable": "^4.1.0",
+    "serve": "^14.2.4"
+  }
+}

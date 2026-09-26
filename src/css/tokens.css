@@ -1,0 +1,56 @@
+@font-face {
+  font-family: 'ChailceNoggin';
+  src: url('../assets/font/ChailceNogginRegular-2OXoW.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'TRYIlya';
+  src: url('../assets/font/TRYIlyaFY-Regular.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+:root {
+  --color-cream: #EFE3C8;
+  --color-cream-subtle: #E2D3B3;
+  --color-cream-dark: #C9B896;
+  --color-ink: #1B1712;
+  --color-ink-faded: rgba(27, 23, 18, 0.75);
+  --color-ink-muted: rgba(27, 23, 18, 0.45);
+  --color-crimson: #C1272D;
+  --color-crimson-dark: #8F191E;
+  --color-mustard: #E3A63E;
+  --color-mustard-bright: #F7BA4A;
+  --color-teal: #2C5F63;
+  --color-teal-dark: #1E4346;
+  --color-tv-dark: #0D0B09;
+  --color-tv-gray: #1E1A16;
+
+  --font-display: 'ChailceNoggin', 'Impact', sans-serif;
+  --font-body: 'TRYIlya', 'Georgia', serif;
+
+  --space-2xs: 0.125rem;
+  --space-xs: 0.25rem;
+  --space-sm: 0.5rem;
+  --space-md: 1rem;
+  --space-lg: 1.5rem;
+  --space-xl: 2rem;
+  --space-2xl: 3rem;
+  --space-3xl: 4.5rem;
+  --space-4xl: 6rem;
+
+  --border-ink-thin: 2px solid var(--color-ink);
+  --border-ink-thick: 4px solid var(--color-ink);
+  --border-ink-heavy: 6px solid var(--color-ink);
+  --shadow-cartoon-sm: 3px 3px 0px var(--color-ink);
+  --shadow-cartoon: 5px 5px 0px var(--color-ink);
+  --shadow-cartoon-lg: 8px 8px 0px var(--color-ink);
+  --shadow-cartoon-xl: 12px 12px 0px var(--color-ink);
+
+  --transition-fast: 150ms cubic-bezier(0.25, 1, 0.5, 1);
+  --transition-smooth: 300ms cubic-bezier(0.16, 1, 0.3, 1);
+}

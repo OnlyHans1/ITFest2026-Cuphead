@@ -1,0 +1,108 @@
+.tv-screen-wrapper {
+  position: relative;
+  background-color: var(--color-tv-dark);
+  background-image: 
+    radial-gradient(circle at 50% 45%, rgba(45, 38, 30, 0.4) 0%, rgba(14, 12, 10, 0.9) 65%, rgba(5, 4, 3, 0.98) 100%),
+    linear-gradient(to bottom, rgba(13, 11, 9, 0.8), rgba(20, 17, 13, 0.8));
+  min-height: 100vh;
+}
+
+.tv-scanlines {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 900;
+  background: repeating-linear-gradient(
+    0deg,
+    rgba(0, 0, 0, 0.28) 0px,
+    rgba(0, 0, 0, 0.28) 1px,
+    transparent 1px,
+    transparent 3px
+  );
+  animation: tvFlicker 0.12s infinite alternate;
+}
+
+.tv-vignette {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 901;
+  box-shadow: 
+    inset 0 0 80px rgba(0, 0, 0, 0.85),
+    inset 0 0 180px rgba(0, 0, 0, 0.95);
+  background: radial-gradient(
+    circle at 50% 50%,
+    transparent 55%,
+    rgba(10, 8, 6, 0.6) 80%,
+    rgba(0, 0, 0, 0.95) 100%
+  );
+}
+
+.film-scratch {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  width: 1px;
+  background: rgba(255, 255, 255, 0.35);
+  box-shadow: 0 0 2px rgba(255, 255, 255, 0.6);
+  pointer-events: none;
+  z-index: 902;
+  animation: filmScratchJitter 0.45s steps(1) infinite;
+}
+
+.film-scratch-secondary {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  width: 1px;
+  background: rgba(255, 255, 255, 0.25);
+  pointer-events: none;
+  z-index: 902;
+  animation: filmScratchSecondary 0.7s steps(1) infinite;
+}
+
+.film-grain {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 903;
+  opacity: 0.16;
+  background-image: 
+    radial-gradient(#ffffff 0.75px, transparent 0.75px),
+    radial-gradient(#000000 0.75px, transparent 0.75px);
+  background-size: 3px 3px, 4px 4px;
+  background-position: 0 0, 2px 2px;
+  animation: grainJitter 0.18s steps(2) infinite;
+}
+
+@keyframes tvFlicker {
+  0% { opacity: 0.92; }
+  100% { opacity: 0.99; }
+}
+
+@keyframes grainJitter {
+  0% { transform: translate(0, 0); }
+  25% { transform: translate(-2px, 2px); }
+  50% { transform: translate(2px, -1px); }
+  75% { transform: translate(-1px, -2px); }
+  100% { transform: translate(1px, 1px); }
+}
+
+@keyframes filmScratchJitter {
+  0% { left: 4.5%; opacity: 0.55; }
+  15% { left: 4.8%; opacity: 0.2; }
+  30% { left: 5.1%; opacity: 0.6; }
+  45% { opacity: 0; }
+  60% { left: 82%; opacity: 0.3; }
+  75% { left: 82.3%; opacity: 0.5; }
+  90% { opacity: 0; }
+  100% { left: 4.5%; opacity: 0.45; }
+}
+
+@keyframes filmScratchSecondary {
+  0% { left: 34%; opacity: 0.2; }
+  25% { opacity: 0; }
+  50% { left: 68%; opacity: 0.4; }
+  75% { left: 68.4%; opacity: 0.15; }
+  100% { opacity: 0; }
+}

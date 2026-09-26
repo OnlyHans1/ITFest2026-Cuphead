@@ -1,0 +1,23 @@
+@import './tokens.css';
+@import './reset.css';
+@import './components/retro-tv.css';
+@import './components/preloader.css';
+@import './components/hero.css';
+@import './components/trailer.css';
+@import './components/sections.css';
+
+.container {
+  width: 100%;
+  max-width: 1200px;
+  margin-inline: auto;
+  padding-inline: var(--space-lg);
+}
+
+.text-crimson { color: var(--color-crimson); }
+.text-mustard { color: var(--color-mustard); }
+.text-teal { color: var(--color-teal); }
+.text-cream { color: var(--color-cream); }
+.text-ink { color: var(--color-ink); }
+
+.font-display { font-family: var(--font-display); }
+.font-body { font-family: var(--font-body); }
