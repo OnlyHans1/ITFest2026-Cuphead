@@ -12,6 +12,8 @@
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
+  background-color: #000000;
+  margin-block-end: 3.5rem;
 }
 
 .hero-section::before {
@@ -20,11 +22,12 @@
   inset: 0;
   background: linear-gradient(
     180deg,
-    rgba(14, 11, 9, 0.72) 0%,
-    rgba(14, 11, 9, 0.48) 30%,
-    rgba(14, 11, 9, 0.58) 70%,
-    rgba(14, 11, 9, 0.92) 90%,
-    var(--color-tv-dark) 100%
+    rgba(0, 0, 0, 0.4) 0%,
+    rgba(0, 0, 0, 0) 25%,
+    rgba(0, 0, 0, 0) 65%,
+    rgba(0, 0, 0, 0.85) 82%,
+    #000000 90%,
+    #000000 100%
   );
   z-index: 1;
   pointer-events: none;
@@ -36,9 +39,9 @@
   inset: 0;
   background: radial-gradient(
     ellipse at center,
-    rgba(0, 0, 0, 0.1) 20%,
-    rgba(14, 11, 9, 0.65) 68%,
-    rgba(14, 11, 9, 0.98) 100%
+    transparent 35%,
+    rgba(0, 0, 0, 0.25) 75%,
+    #000000 100%
   );
   z-index: 1;
   pointer-events: none;

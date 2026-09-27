@@ -1,4 +1,8 @@
-const FRAME_FILES = [
+const SALTBK_BASE = './assets/images/chefSaltbakerSequence/Shot 1 + 3/';
+const KING_DICE_BASE = './assets/images/kingDiceSequence/Frames/';
+const BAD_ENDING_BASE = './assets/images/badEndingSequence/Frames/';
+
+const SALTBK_FRAMES = [
   'A/pre_last_boss_cutscene_saltbaker_0001a.png',
   'A/pre_last_boss_cutscene_saltbaker_0001b.png',
   'A/pre_last_boss_cutscene_saltbaker_0001c.png',
@@ -56,92 +60,148 @@ const FRAME_FILES = [
   'D/pre_last_boss_cutscene_saltbaker_0047c.png'
 ];
 
-const BASE_PATH = './assets/images/Delicious Last Course - A Dish to Die For/Shot 1 + 3/';
-const BG_SRC = BASE_PATH + 'Background/pre_last_boss_shot_1_bg.png';
-const FG_LEFT_SRC = BASE_PATH + 'Background/pre_last_boss_shot_1_fg_left.png';
-const FG_RIGHT_SRC = BASE_PATH + 'Background/pre_last_boss_shot_1_fg_right.png';
+const KING_DICE_FRAMES = Array.from({ length: 38 }, (_, i) => {
+  const num = String(i + 1).padStart(4, '0');
+  return `king_dice_frame_${num}.png`;
+});
 
-export function initLandingSequence() {
-  const container = document.getElementById('sequence');
-  const canvas = document.getElementById('sequence-canvas');
+const BAD_ENDING_FRAMES = Array.from({ length: 36 }, (_, i) => {
+  const num = String(i + 1).padStart(4, '0');
+  return `bad_ending_frame_${num}.png`;
+});
+
+function createScrollSequence(config) {
+  const container = document.getElementById(config.sectionId);
+  const canvas = document.getElementById(config.canvasId);
   if (!container || !canvas) return;
 
   const ctx = canvas.getContext('2d', { alpha: false });
-  const frameImages = [];
-  const bgImage = new Image();
-  const fgLeftImage = new Image();
-  const fgRightImage = new Image();
+  const frames = [];
+  let bgImg = null;
+  let fgLeftImg = null;
+  let fgRightImg = null;
 
-  bgImage.src = BG_SRC;
-  fgLeftImage.src = FG_LEFT_SRC;
-  fgRightImage.src = FG_RIGHT_SRC;
+  if (config.bg) {
+    bgImg = new Image();
+    bgImg.src = config.bg;
+  }
+  if (config.fgLeft) {
+    fgLeftImg = new Image();
+    fgLeftImg.src = config.fgLeft;
+  }
+  if (config.fgRight) {
+    fgRightImg = new Image();
+    fgRightImg.src = config.fgRight;
+  }
 
-  FRAME_FILES.forEach((file, index) => {
+  config.files.forEach((f, idx) => {
     const img = new Image();
-    img.src = BASE_PATH + 'Chef Saltbaker/' + file;
-    if (index === 0) {
+    img.src = config.base + f;
+    if (idx === 0) {
       img.onload = () => render(0);
     }
-    frameImages.push(img);
+    frames.push(img);
   });
 
-  const captions = [
-    { el: document.getElementById('seq-cap-1'), start: 0.02, end: 0.22 },
-    { el: document.getElementById('seq-cap-2'), start: 0.26, end: 0.47 },
-    { el: document.getElementById('seq-cap-3'), start: 0.51, end: 0.72 },
-    { el: document.getElementById('seq-cap-4'), start: 0.76, end: 0.97 }
+  const captionElements = [
+    { el: document.getElementById(`${config.capPrefix}-1`), start: 0.02, end: 0.22 },
+    { el: document.getElementById(`${config.capPrefix}-2`), start: 0.26, end: 0.47 },
+    { el: document.getElementById(`${config.capPrefix}-3`), start: 0.51, end: 0.72 },
+    { el: document.getElementById(`${config.capPrefix}-4`), start: 0.76, end: 0.97 }
   ];
 
   let currentProgress = -1;
 
   function resizeCanvas() {
     const dpr = Math.min(window.devicePixelRatio || 1, 2);
-    canvas.width = Math.floor(window.innerWidth * dpr);
-    canvas.height = Math.floor(window.innerHeight * dpr);
-    canvas.style.width = window.innerWidth + 'px';
-    canvas.style.height = window.innerHeight + 'px';
-    currentProgress = -1;
-    updateProgress();
+    const rect = canvas.getBoundingClientRect();
+    const w = Math.round(rect.width || window.innerWidth);
+    const h = Math.round(rect.height || window.innerHeight);
+
+    if (canvas.width !== w * dpr || canvas.height !== h * dpr) {
+      canvas.width = w * dpr;
+      canvas.height = h * dpr;
+      ctx.setTransform(1, 0, 0, 1, 0, 0);
+      ctx.scale(dpr, dpr);
+    }
+
+    if (currentProgress >= 0) {
+      render(currentProgress);
+    }
   }
 
-  function render(prog) {
-    const w = canvas.width;
-    const h = canvas.height;
+  window.addEventListener('resize', resizeCanvas);
+  resizeCanvas();
+
+  function render(progress) {
+    currentProgress = progress;
+    const w = canvas.width / Math.min(window.devicePixelRatio || 1, 2);
+    const h = canvas.height / Math.min(window.devicePixelRatio || 1, 2);
+
     ctx.fillStyle = '#0E0B09';
     ctx.fillRect(0, 0, w, h);
 
-    const baseW = 1320;
-    const baseH = 740;
-    const scale = Math.max(w / baseW, h / baseH);
-    const destW = baseW * scale;
-    const destH = baseH * scale;
-    const destX = (w - destW) / 2;
-    const destY = (h - destH) / 2;
+    if (!frames.length) return;
 
-    if (bgImage.complete && bgImage.naturalWidth > 0) {
-      ctx.drawImage(bgImage, destX, destY, destW, destH);
+    const frameIdx = Math.min(
+      Math.floor(progress * frames.length),
+      frames.length - 1
+    );
+    const frameImg = frames[frameIdx];
+
+    if (config.mode === 'cutscene') {
+      const targetAspect = 1459 / 770;
+      let drawW, drawH, drawX, drawY;
+
+      if (w / h > targetAspect) {
+        drawW = w;
+        drawH = w / targetAspect;
+        drawX = 0;
+        drawY = (h - drawH) / 2;
+      } else {
+        drawH = h;
+        drawW = h * targetAspect;
+        drawX = (w - drawW) / 2;
+        drawY = 0;
+      }
+
+      if (bgImg && bgImg.complete && bgImg.naturalWidth > 0) {
+        ctx.drawImage(bgImg, drawX, drawY, drawW, drawH);
+      }
+      if (frameImg && frameImg.complete && frameImg.naturalWidth > 0) {
+        ctx.drawImage(frameImg, drawX, drawY, drawW, drawH);
+      }
+      if (fgLeftImg && fgLeftImg.complete && fgLeftImg.naturalWidth > 0) {
+        ctx.drawImage(fgLeftImg, drawX, drawY, drawW, drawH);
+      }
+      if (fgRightImg && fgRightImg.complete && fgRightImg.naturalWidth > 0) {
+        ctx.drawImage(fgRightImg, drawX, drawY, drawW, drawH);
+      }
+    } else {
+      if (frameImg && frameImg.complete && frameImg.naturalWidth > 0) {
+        const imgAspect = frameImg.naturalWidth / frameImg.naturalHeight;
+        let drawW, drawH, drawX, drawY;
+
+        if (w / h > imgAspect) {
+          drawH = h;
+          drawW = h * imgAspect;
+          drawX = (w - drawW) / 2;
+          drawY = 0;
+        } else {
+          drawW = w;
+          drawH = w / imgAspect;
+          drawX = 0;
+          drawY = (h - drawH) / 2;
+        }
+
+        ctx.drawImage(frameImg, drawX, drawY, drawW, drawH);
+      }
     }
 
-    const frameIdx = Math.min(frameImages.length - 1, Math.max(0, Math.floor(prog * (frameImages.length - 1))));
-    const curFrame = frameImages[frameIdx];
-
-    if (curFrame && curFrame.complete && curFrame.naturalWidth > 0) {
-      ctx.drawImage(curFrame, destX, destY, destW, destH);
-    }
-
-    const parallax = (prog - 0.5) * 50 * (w / 1320);
-
-    if (fgLeftImage.complete && fgLeftImage.naturalWidth > 0) {
-      ctx.drawImage(fgLeftImage, destX - parallax, destY, destW, destH);
-    }
-
-    if (fgRightImage.complete && fgRightImage.naturalWidth > 0) {
-      ctx.drawImage(fgRightImage, destX + parallax, destY, destW, destH);
-    }
-
-    captions.forEach((cap) => {
+    captionElements.forEach(cap => {
       if (!cap.el) return;
-      if (prog >= cap.start && prog <= cap.end) {
+      const visible = progress >= cap.start && progress <= cap.end;
+      if (visible) {
         cap.el.classList.add('is-active');
       } else {
         cap.el.classList.remove('is-active');
@@ -149,22 +209,60 @@ export function initLandingSequence() {
     });
   }
 
-  function updateProgress() {
-    const rect = container.getBoundingClientRect();
-    const scrollRange = container.offsetHeight - window.innerHeight;
-    if (scrollRange <= 0) return;
+  let targetProgress = 0;
+  let currentScrub = 0;
 
-    const rawProg = -rect.top / scrollRange;
-    const clamped = Math.min(1, Math.max(0, rawProg));
-
-    if (Math.abs(clamped - currentProgress) > 0.0008) {
-      currentProgress = clamped;
-      render(currentProgress);
+  function scrubLoop() {
+    const diff = targetProgress - currentScrub;
+    if (Math.abs(diff) > 0.0005) {
+      currentScrub += diff * 0.18;
+      render(currentScrub);
     }
+    requestAnimationFrame(scrubLoop);
+  }
+  scrubLoop();
+
+  function onScroll() {
+    const rect = container.getBoundingClientRect();
+    const totalDist = container.offsetHeight - window.innerHeight;
+    if (totalDist <= 0) return;
+
+    const scrolled = -rect.top;
+    targetProgress = Math.max(0, Math.min(1, scrolled / totalDist));
   }
 
-  window.addEventListener('resize', resizeCanvas, { passive: true });
-  window.addEventListener('scroll', updateProgress, { passive: true });
+  window.addEventListener('scroll', onScroll, { passive: true });
+  onScroll();
+}
 
-  resizeCanvas();
+export function initLandingSequence() {
+  createScrollSequence({
+    sectionId: 'sequence-saltbaker',
+    canvasId: 'sequence-canvas-saltbaker',
+    capPrefix: 'seq-saltbaker-cap',
+    base: SALTBK_BASE + 'Chef Saltbaker/',
+    files: SALTBK_FRAMES,
+    bg: SALTBK_BASE + 'Background/pre_last_boss_shot_1_bg.png',
+    fgLeft: SALTBK_BASE + 'Background/pre_last_boss_shot_1_fg_left.png',
+    fgRight: SALTBK_BASE + 'Background/pre_last_boss_shot_1_fg_right.png',
+    mode: 'cutscene'
+  });
+
+  createScrollSequence({
+    sectionId: 'sequence-king-dice',
+    canvasId: 'sequence-canvas-king-dice',
+    capPrefix: 'seq-king-dice-cap',
+    base: KING_DICE_BASE,
+    files: KING_DICE_FRAMES,
+    mode: 'composite'
+  });
+
+  createScrollSequence({
+    sectionId: 'sequence-devil',
+    canvasId: 'sequence-canvas-devil',
+    capPrefix: 'seq-devil-cap',
+    base: BAD_ENDING_BASE,
+    files: BAD_ENDING_FRAMES,
+    mode: 'composite'
+  });
 }

@@ -35,6 +35,10 @@ body {
   position: relative;
 }
 
+main {
+  background-color: var(--color-tv-dark);
+}
+
 img, picture, video, canvas, svg {
   display: block;
   max-width: 100%;

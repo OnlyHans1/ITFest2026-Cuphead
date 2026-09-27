@@ -1,9 +1,6 @@
 .tv-screen-wrapper {
   position: relative;
-  background-color: var(--color-tv-dark);
-  background-image: 
-    radial-gradient(circle at 50% 45%, rgba(45, 38, 30, 0.4) 0%, rgba(14, 12, 10, 0.9) 65%, rgba(5, 4, 3, 0.98) 100%),
-    linear-gradient(to bottom, rgba(13, 11, 9, 0.8), rgba(20, 17, 13, 0.8));
+  background-color: #000000;
   min-height: 100vh;
 }
 
@@ -14,12 +11,12 @@
   z-index: 900;
   background: repeating-linear-gradient(
     0deg,
-    rgba(0, 0, 0, 0.28) 0px,
-    rgba(0, 0, 0, 0.28) 1px,
+    rgba(0, 0, 0, 0.06) 0px,
+    rgba(0, 0, 0, 0.06) 1px,
     transparent 1px,
     transparent 3px
   );
-  animation: tvFlicker 0.12s infinite alternate;
+  animation: tvFlicker 0.15s infinite alternate;
 }
 
 .tv-vignette {
@@ -28,13 +25,12 @@
   pointer-events: none;
   z-index: 901;
   box-shadow: 
-    inset 0 0 80px rgba(0, 0, 0, 0.85),
-    inset 0 0 180px rgba(0, 0, 0, 0.95);
+    inset 0 0 35px rgba(0, 0, 0, 0.35);
   background: radial-gradient(
     circle at 50% 50%,
-    transparent 55%,
-    rgba(10, 8, 6, 0.6) 80%,
-    rgba(0, 0, 0, 0.95) 100%
+    transparent 78%,
+    rgba(10, 8, 6, 0.18) 90%,
+    rgba(0, 0, 0, 0.42) 100%
   );
 }
 
@@ -43,11 +39,11 @@
   top: 0;
   bottom: 0;
   width: 1px;
-  background: rgba(255, 255, 255, 0.35);
-  box-shadow: 0 0 2px rgba(255, 255, 255, 0.6);
+  background: rgba(255, 255, 255, 0.22);
+  box-shadow: 0 0 2px rgba(255, 255, 255, 0.4);
   pointer-events: none;
   z-index: 902;
-  animation: filmScratchJitter 0.45s steps(1) infinite;
+  animation: filmScratchJitter 0.5s steps(1) infinite;
 }
 
 .film-scratch-secondary {
@@ -55,10 +51,10 @@
   top: 0;
   bottom: 0;
   width: 1px;
-  background: rgba(255, 255, 255, 0.25);
+  background: rgba(255, 255, 255, 0.16);
   pointer-events: none;
   z-index: 902;
-  animation: filmScratchSecondary 0.7s steps(1) infinite;
+  animation: filmScratchSecondary 0.75s steps(1) infinite;
 }
 
 .film-grain {
@@ -66,7 +62,7 @@
   inset: 0;
   pointer-events: none;
   z-index: 903;
-  opacity: 0.16;
+  opacity: 0.06;
   background-image: 
     radial-gradient(#ffffff 0.75px, transparent 0.75px),
     radial-gradient(#000000 0.75px, transparent 0.75px);
@@ -76,8 +72,8 @@
 }
 
 @keyframes tvFlicker {
-  0% { opacity: 0.92; }
-  100% { opacity: 0.99; }
+  0% { opacity: 0.95; }
+  100% { opacity: 1; }
 }
 
 @keyframes grainJitter {
@@ -89,20 +85,20 @@
 }
 
 @keyframes filmScratchJitter {
-  0% { left: 4.5%; opacity: 0.55; }
-  15% { left: 4.8%; opacity: 0.2; }
-  30% { left: 5.1%; opacity: 0.6; }
+  0% { left: 4.5%; opacity: 0.4; }
+  15% { left: 4.8%; opacity: 0.15; }
+  30% { left: 5.1%; opacity: 0.45; }
   45% { opacity: 0; }
-  60% { left: 82%; opacity: 0.3; }
-  75% { left: 82.3%; opacity: 0.5; }
+  60% { left: 82%; opacity: 0.2; }
+  75% { left: 82.3%; opacity: 0.35; }
   90% { opacity: 0; }
-  100% { left: 4.5%; opacity: 0.45; }
+  100% { left: 4.5%; opacity: 0.3; }
 }
 
 @keyframes filmScratchSecondary {
-  0% { left: 34%; opacity: 0.2; }
+  0% { left: 34%; opacity: 0.15; }
   25% { opacity: 0; }
-  50% { left: 68%; opacity: 0.4; }
-  75% { left: 68.4%; opacity: 0.15; }
+  50% { left: 68%; opacity: 0.25; }
+  75% { left: 68.4%; opacity: 0.1; }
   100% { opacity: 0; }
 }

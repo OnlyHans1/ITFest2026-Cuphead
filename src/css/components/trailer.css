@@ -1,9 +1,11 @@
 .trailer-section {
   position: relative;
-  padding-block: var(--space-3xl) var(--space-4xl);
+  padding-block: clamp(7rem, 15vh, 10.5rem);
   display: flex;
   flex-direction: column;
   align-items: center;
+  background-color: #000000;
+  margin-block-end: 3.5rem;
   z-index: 2;
 }
 
