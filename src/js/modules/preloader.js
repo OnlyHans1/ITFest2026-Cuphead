@@ -10,6 +10,8 @@ export function initPreloader(onComplete) {
     return;
   }
 
+  document.body.classList.add('is-preloading');
+
   let progress = 0;
   const interval = setInterval(() => {
     progress += Math.floor(Math.random() * 15) + 10;
@@ -25,15 +27,16 @@ export function initPreloader(onComplete) {
         startBtn.style.display = 'inline-block';
         startBtn.focus();
       } else {
-        setTimeout(dismissPreloader, 400);
+        setTimeout(dismissPreloader, 350);
       }
     }
-  }, 120);
+  }, 100);
 
   function dismissPreloader() {
     preloaderEl.classList.add('is-loaded');
+    document.body.classList.remove('is-preloading');
     if (typeof onComplete === 'function') {
-      setTimeout(onComplete, 300);
+      setTimeout(onComplete, 250);
     }
   }
 

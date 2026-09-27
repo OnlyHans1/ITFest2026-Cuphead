@@ -61,8 +61,12 @@
       <nav>
         <ul class="nav-links">
           <li><a href="#hero" class="nav-link active">Home</a></li>
-          <li><a href="#sequence" class="nav-link">Secret Reel</a></li>
+          <li><a href="#trailer" class="nav-link">Trailer</a></li>
+          <li><a href="#story" class="nav-link">Story</a></li>
+          <li><a href="#characters" class="nav-link">Characters</a></li>
           <li><a href="#bosses" class="nav-link">Bosses</a></li>
+          <li><a href="#sequence" class="nav-link">Secret Reel</a></li>
+          <li><a href="#dlc" class="nav-link">DLC</a></li>
           <li><a href="#play" class="nav-link nav-link--cta">Play Now</a></li>
         </ul>
       </nav>
@@ -72,7 +76,6 @@
   <main>
     <section id="hero" class="hero-section">
       <div class="hero-backdrop-glow"></div>
-      <img src="./assets/web/logo.png" alt="Devil Silhouette" class="hero-devil-silhouette">
 
       <div class="hero-content">
         <div class="hero-badge">Original 1930s Cartoon Experience</div>
@@ -93,43 +96,6 @@
 
         <div class="hero-cuphead-sprite-wrap">
           <img src="./assets/images/Cuphead/cuphead_idle_0001.png" alt="Cuphead Ready" class="hero-cuphead-sprite">
-        </div>
-      </div>
-    </section>
-
-    <section id="sequence" class="sequence-section">
-      <div class="sequence-sticky">
-        <canvas id="sequence-canvas" class="sequence-canvas"></canvas>
-        <div class="sequence-overlay-vignette" aria-hidden="true"></div>
-
-        <div class="sequence-captions-layer">
-          <article id="seq-cap-1" class="seq-caption seq-cap-bottom-center">
-            <span class="seq-badge">Scene I &bull; Undercover Cellar</span>
-            <h2 class="seq-title">A SECRET BREWS BENEATH ISLE IV</h2>
-            <p class="seq-desc">Di ruang bawah tanah tersembunyi, Chef Saltbaker meracik adonan ajaib. Namun aroma kebaikan perlahan memudar digantikan hawa dingin yang mencekam.</p>
-          </article>
-
-          <article id="seq-cap-2" class="seq-caption seq-cap-middle-left">
-            <span class="seq-badge">Scene II &bull; The Sudden Turn</span>
-            <h2 class="seq-title">THE MASK OF HOSPITALITY SHATTERS</h2>
-            <p class="seq-desc">Sebuah gerakan cepat membalikkan pisau daging raksasa. Senyum ramah sang koki berubah menjadi seringai penuh ambisi gelap demi merebut kekuatan astral.</p>
-          </article>
-
-          <article id="seq-cap-3" class="seq-caption seq-cap-middle-right">
-            <span class="seq-badge">Scene III &bull; The Final Ingredient</span>
-            <h2 class="seq-title">WONDERTART DEMANDS A LIVING SOUL</h2>
-            <p class="seq-desc">Resep Wondertart legendaris membutuhkan tumbal jiwa suci seorang pahlawan. Cuphead, Mugman, dan Ms. Chalice kini menjadi mangsa dalam dapur malapetaka!</p>
-          </article>
-
-          <article id="seq-cap-4" class="seq-caption seq-cap-bottom-center">
-            <span class="seq-badge">Scene IV &bull; The Astral Duel</span>
-            <h2 class="seq-title">STAND FIRM OR BE GROUND TO FLOUR</h2>
-            <p class="seq-desc">Dinding runtuh, proyektil meriam bumbu berhamburan. Hanya refleks super cepat dan jari penembak sejati yang dapat menghentikan sang koki sebelum fajar!</p>
-          </article>
-        </div>
-
-        <div class="sequence-scroll-hint">
-          <span>&darr; SCROLL UNTUK MELANJUTKAN FILM &darr;</span>
         </div>
       </div>
     </section>
@@ -173,88 +139,144 @@
       </div>
     </section>
 
-    <section id="story" class="story-section container">
-      <div class="story-card">
-        <div class="story-text">
-          <span class="section-tag">The Lore</span>
-          <h3>TARUHAN BERBAHAYA DI DEVIL'S CASINO</h3>
-          <p>
-            Di sebuah pulau terpencil bernama Inkwell Isle, Cuphead dan saudaranya Mugman hidup damai di bawah asuhan
-            Elder Kettle yang bijak. Namun sebuah keisengan membawa mereka masuk ke dalam kasino megah milik sang Iblis.
-          </p>
-          <p>
-            Setelah memenangkan rentetan taruhan, sang Iblis menawarkan sebuah perjanjian: menangkan satu lemparan dadu
-            lagi untuk merebut seluruh kekayaan kasino, atau serahkan jiwa mereka jika kalah. Dadu dilempar, dan
-            malapetaka dimulai!
-          </p>
-          <a href="#gameplay" class="btn-primary" style="font-size: 0.95rem; padding: 0.6rem 1.2rem;">Pelajari Mekanik
-            Permainan</a>
-        </div>
-        <div class="story-image-wrap">
-          <img src="./assets/images/Cuphead/player_ch_scared_0001.png" alt="Cuphead Scared" class="story-image">
+    <section id="story" class="story-section">
+      <div class="section-bg-blend" aria-hidden="true"></div>
+      <div class="section-bg-vignette" aria-hidden="true"></div>
+
+      <div class="container section-content-relative">
+        <div class="story-card">
+          <div class="story-text">
+            <span class="section-tag">The Lore</span>
+            <h3>TARUHAN BERBAHAYA DI DEVIL'S CASINO</h3>
+            <p>
+              Di sebuah pulau terpencil bernama Inkwell Isle, Cuphead dan saudaranya Mugman hidup damai di bawah asuhan
+              Elder Kettle yang bijak. Namun sebuah keisengan membawa mereka masuk ke dalam kasino megah milik sang Iblis.
+            </p>
+            <p>
+              Setelah memenangkan rentetan taruhan, sang Iblis menawarkan sebuah perjanjian: menangkan satu lemparan dadu
+              lagi untuk merebut seluruh kekayaan kasino, atau serahkan jiwa mereka jika kalah. Dadu dilempar, dan
+              malapetaka dimulai!
+            </p>
+            <a href="#gameplay" class="btn-primary" style="font-size: 0.95rem; padding: 0.6rem 1.2rem;">Pelajari Mekanik Permainan &rarr;</a>
+          </div>
+          <div class="story-image-wrap">
+            <img src="./assets/images/Cuphead/player_ch_scared_0001.png" alt="Cuphead Scared" class="story-image">
+          </div>
         </div>
       </div>
     </section>
 
-    <section id="characters" class="characters-section container">
-      <div class="section-header">
-        <span class="section-tag">Cast & Heroes</span>
-        <h2 class="section-title">THE INKWELL ENSEMBLE</h2>
-        <p class="section-desc">Pahlawan bertangan lincah dan penghuni pulau unik yang mewarnai setiap sudut dunia
-          kartun.</p>
+    <section id="characters" class="characters-section">
+      <div class="section-bg-blend" aria-hidden="true"></div>
+      <div class="section-bg-vignette" aria-hidden="true"></div>
+
+      <div class="container section-content-relative">
+        <div class="section-header">
+          <span class="section-tag">Cast & Heroes</span>
+          <h2 class="section-title">THE INKWELL ENSEMBLE</h2>
+          <p class="section-desc">Pahlawan bertangan lincah dan penghuni pulau unik yang mewarnai setiap sudut dunia kartun.</p>
+        </div>
+
+        <div class="character-grid">
+          <article class="character-card">
+            <div class="character-avatar-wrap">
+              <img src="./assets/images/Cuphead/cuphead_shoot_straight_0001.png" alt="Cuphead" class="character-avatar character-avatar--cuphead">
+            </div>
+            <div class="character-details">
+              <span class="character-role">Protagonist</span>
+              <h3 class="character-name">CUPHEAD</h3>
+              <p class="character-desc">Pemberani, nekat, dan berjas celana merah. Mengandalkan tembakan peashooter cepat dari ujung jarinya.</p>
+            </div>
+          </article>
+
+          <article class="character-card">
+            <div class="character-avatar-wrap">
+              <img src="./assets/images/Delicious Last Course - A Dish to Die For/Shot 2/Mugman/A/cu_prelastboss_cutscene_mugman_0001a.png" alt="Mugman" class="character-avatar character-avatar--mugman">
+            </div>
+            <div class="character-details">
+              <span class="character-role">Brother in Arms</span>
+              <h3 class="character-name">MUGMAN</h3>
+              <p class="character-desc">Saudara berkepala cangkir biru yang lebih waspada dan selalu mendampingi dalam petualangan berbahaya.</p>
+            </div>
+          </article>
+
+          <article class="character-card">
+            <div class="character-avatar-wrap">
+              <img src="./assets/images/Delicious Last Course - A Dish to Die For/Shot 2/Ms. Chalice/A/cu_prelastboss_cutscene_chalice_0001a.png" alt="Ms. Chalice" class="character-avatar character-avatar--chalice">
+            </div>
+            <div class="character-details">
+              <span class="character-role">Legendary Chalice</span>
+              <h3 class="character-name">MS. CHALICE</h3>
+              <p class="character-desc">Pemberani dengan kemampuan double jump, dash parry khusus, dan roll kebal serangan.</p>
+            </div>
+          </article>
+
+          <article class="character-card">
+            <div class="character-avatar-wrap">
+              <img src="./assets/images/Chef Saltbaker/Idle/NPC_saltbaker_0001.png" alt="Chef Saltbaker" class="character-avatar character-avatar--saltbaker">
+            </div>
+            <div class="character-details">
+              <span class="character-role">Master Baker</span>
+              <h3 class="character-name">CHEF SALTBAKER</h3>
+              <p class="character-desc">Koki ramah pemilik toko roti legendaris di pulau ke-4 yang mencari resep Wondertart ajaib.</p>
+            </div>
+          </article>
+        </div>
       </div>
+    </section>
 
-      <div class="character-grid">
-        <article class="character-card">
-          <div class="character-avatar-wrap">
-            <img src="./assets/images/Cuphead/cuphead_shoot_straight_0001.png" alt="Cuphead" class="character-avatar character-avatar--cuphead">
-          </div>
-          <div class="character-details">
-            <span class="character-role">Protagonist</span>
-            <h3 class="character-name">CUPHEAD</h3>
-            <p class="character-desc">Pemberani, nekat, dan berjas celana merah. Mengandalkan tembakan peashooter cepat dari ujung jarinya.</p>
-          </div>
-        </article>
+    <section id="gameplay" class="gameplay-section">
+      <div class="section-bg-blend" aria-hidden="true"></div>
+      <div class="section-bg-vignette" aria-hidden="true"></div>
 
-        <article class="character-card">
-          <div class="character-avatar-wrap">
-            <img src="./assets/images/Delicious Last Course - A Dish to Die For/Shot 2/Mugman/A/cu_prelastboss_cutscene_mugman_0001a.png" alt="Mugman" class="character-avatar character-avatar--mugman">
-          </div>
-          <div class="character-details">
-            <span class="character-role">Brother in Arms</span>
-            <h3 class="character-name">MUGMAN</h3>
-            <p class="character-desc">Saudara berkepala cangkir biru yang lebih waspada dan selalu mendampingi dalam petualangan berbahaya.</p>
-          </div>
-        </article>
+      <div class="container section-content-relative">
+        <div class="section-header">
+          <span class="section-tag">Core Mechanics</span>
+          <h2 class="section-title">MASTER THE CARTOON BATTLE</h2>
+          <p class="section-desc">Kecepatan reaksi, ketepatan manuver udara, dan reflek parry adalah kunci bertahan hidup.</p>
+        </div>
 
-        <article class="character-card">
-          <div class="character-avatar-wrap">
-            <img src="./assets/images/Delicious Last Course - A Dish to Die For/Shot 2/Ms. Chalice/A/cu_prelastboss_cutscene_chalice_0001a.png" alt="Ms. Chalice" class="character-avatar character-avatar--chalice">
-          </div>
-          <div class="character-details">
-            <span class="character-role">Legendary Chalice</span>
-            <h3 class="character-name">MS. CHALICE</h3>
-            <p class="character-desc">Pemberani dengan kemampuan double jump, dash parry khusus, dan roll kebal serangan.</p>
-          </div>
-        </article>
+        <div class="gameplay-grid">
+          <article class="gameplay-card">
+            <div class="gameplay-icon-wrap">
+              <img src="./assets/images/Cuphead/cuphead_parry_pink_0001.png" alt="Parry Slap" class="gameplay-icon">
+            </div>
+            <h3 class="gameplay-title">PINK PARRY SLAP</h3>
+            <p class="gameplay-desc">Tangkis semua proyektil berwarna merah muda di udara untuk mengisi EX meter dan melancarkan jurus mematikan.</p>
+          </article>
 
-        <article class="character-card">
-          <div class="character-avatar-wrap">
-            <img src="./assets/images/Chef Saltbaker/Idle/NPC_saltbaker_0001.png" alt="Chef Saltbaker" class="character-avatar character-avatar--saltbaker">
-          </div>
-          <div class="character-details">
-            <span class="character-role">Master Baker</span>
-            <h3 class="character-name">CHEF SALTBAKER</h3>
-            <p class="character-desc">Koki ramah pemilik toko roti legendaris di pulau ke-4 yang mencari resep Wondertart ajaib.</p>
-          </div>
-        </article>
+          <article class="gameplay-card">
+            <div class="gameplay-icon-wrap">
+              <img src="./assets/images/Cuphead/cuphead_super_beam_0001.png" alt="Super Attack" class="gameplay-icon">
+            </div>
+            <h3 class="gameplay-title">SUPER BEAM I</h3>
+            <p class="gameplay-desc">Tembakkan semburan energi berkekuatan penuh dari cangkir untuk meremukkan pertahanan bos terkuat.</p>
+          </article>
+
+          <article class="gameplay-card">
+            <div class="gameplay-icon-wrap">
+              <img src="./assets/images/Cuphead/cuphead_run_shoot_0001.png" alt="Run and Gun" class="gameplay-icon">
+            </div>
+            <h3 class="gameplay-title">RUN & GUN PRECISION</h3>
+            <p class="gameplay-desc">Terobos barikade musuh dengan tembakan tanpa henti sambil melompati rintangan berkecepatan tinggi.</p>
+          </article>
+
+          <article class="gameplay-card">
+            <div class="gameplay-icon-wrap">
+              <img src="./assets/images/Cuphead/cuphead_dash_0001.png" alt="Dash Maneuver" class="gameplay-icon">
+            </div>
+            <h3 class="gameplay-title">SMOKE DASH</h3>
+            <p class="gameplay-desc">Gunakan dash udara untuk melewati celah sempit di antara ribuan peluru tanpa terkena satu sentuhan pun.</p>
+          </article>
+        </div>
       </div>
     </section>
 
     <section id="bosses" class="bosses-section">
-      <div class="bosses-backdrop-overlay" aria-hidden="true"></div>
+      <div class="section-bg-blend" aria-hidden="true"></div>
+      <div class="section-bg-vignette" aria-hidden="true"></div>
 
-      <div class="container bosses-content-wrap">
+      <div class="container section-content-relative">
         <div class="section-header">
           <span class="section-tag">Inkwell Debtors</span>
           <h2 class="section-title">THE SOUL CONTRACT ROSTER</h2>
@@ -365,93 +387,91 @@
       </div>
     </section>
 
-    <section id="gameplay" class="gameplay-section container">
-      <div class="section-header">
-        <span class="section-tag">Core Mechanics</span>
-        <h2 class="section-title">MASTER THE CARTOON BATTLE</h2>
-        <p class="section-desc">Kecepatan reaksi, ketepatan manuver udara, dan reflek parry adalah kunci bertahan hidup.
-        </p>
-      </div>
+    <section id="sequence" class="sequence-section">
+      <div class="sequence-sticky">
+        <canvas id="sequence-canvas" class="sequence-canvas"></canvas>
+        <div class="sequence-overlay-vignette" aria-hidden="true"></div>
 
-      <div class="gameplay-grid">
-        <article class="gameplay-card">
-          <div class="gameplay-icon-wrap">
-            <img src="./assets/images/Cuphead/cuphead_parry_pink_0001.png" alt="Parry Slap" class="gameplay-icon">
-          </div>
-          <h3 class="gameplay-title">PINK PARRY SLAP</h3>
-          <p class="gameplay-desc">Tangkis semua proyektil berwarna merah muda di udara untuk mengisi EX meter dan
-            melancarkan jurus mematikan.</p>
-        </article>
+        <div class="sequence-captions-layer">
+          <article id="seq-cap-1" class="seq-caption seq-cap-bottom-center">
+            <span class="seq-badge">Scene I &bull; Undercover Cellar</span>
+            <h2 class="seq-title">A SECRET BREWS BENEATH ISLE IV</h2>
+            <p class="seq-desc">Di ruang bawah tanah tersembunyi, Chef Saltbaker meracik adonan ajaib. Namun aroma kebaikan perlahan memudar digantikan hawa dingin yang mencekam.</p>
+          </article>
 
-        <article class="gameplay-card">
-          <div class="gameplay-icon-wrap">
-            <img src="./assets/images/Cuphead/cuphead_super_beam_0001.png" alt="Super Attack" class="gameplay-icon">
-          </div>
-          <h3 class="gameplay-title">SUPER BEAM I</h3>
-          <p class="gameplay-desc">Tembakkan semburan energi berkekuatan penuh dari cangkir untuk meremukkan pertahanan
-            bos terkuat.</p>
-        </article>
+          <article id="seq-cap-2" class="seq-caption seq-cap-middle-left">
+            <span class="seq-badge">Scene II &bull; The Sudden Turn</span>
+            <h2 class="seq-title">THE MASK OF HOSPITALITY SHATTERS</h2>
+            <p class="seq-desc">Sebuah gerakan cepat membalikkan pisau daging raksasa. Senyum ramah sang koki berubah menjadi seringai penuh ambisi gelap demi merebut kekuatan astral.</p>
+          </article>
 
-        <article class="gameplay-card">
-          <div class="gameplay-icon-wrap">
-            <img src="./assets/images/Cuphead/cuphead_run_shoot_0001.png" alt="Run and Gun" class="gameplay-icon">
-          </div>
-          <h3 class="gameplay-title">RUN & GUN PRECISION</h3>
-          <p class="gameplay-desc">Terobos barikade musuh dengan tembakan tanpa henti sambil melompati rintangan
-            berkecepatan tinggi.</p>
-        </article>
+          <article id="seq-cap-3" class="seq-caption seq-cap-middle-right">
+            <span class="seq-badge">Scene III &bull; The Final Ingredient</span>
+            <h2 class="seq-title">WONDERTART DEMANDS A LIVING SOUL</h2>
+            <p class="seq-desc">Resep Wondertart legendaris membutuhkan tumbal jiwa suci seorang pahlawan. Cuphead, Mugman, dan Ms. Chalice kini menjadi mangsa dalam dapur malapetaka!</p>
+          </article>
 
-        <article class="gameplay-card">
-          <div class="gameplay-icon-wrap">
-            <img src="./assets/images/Cuphead/cuphead_dash_0001.png" alt="Dash Maneuver" class="gameplay-icon">
-          </div>
-          <h3 class="gameplay-title">SMOKE DASH</h3>
-          <p class="gameplay-desc">Gunakan dash udara untuk melewati celah sempit di antara ribuan peluru tanpa terkena
-            satu sentuhan pun.</p>
-        </article>
-      </div>
-    </section>
+          <article id="seq-cap-4" class="seq-caption seq-cap-bottom-center">
+            <span class="seq-badge">Scene IV &bull; The Astral Duel</span>
+            <h2 class="seq-title">STAND FIRM OR BE GROUND TO FLOUR</h2>
+            <p class="seq-desc">Dinding runtuh, proyektil meriam bumbu berhamburan. Hanya refleks super cepat dan jari penembak sejati yang dapat menghentikan sang koki sebelum fajar!</p>
+          </article>
+        </div>
 
-    <section id="dlc" class="dlc-section container">
-      <div class="dlc-banner-card"
-        style="background-image: url('./assets/images/Saltbaker\'s Bakery/Bakery/12-bakery_bg_main.png');">
-        <div class="dlc-overlay-content">
-          <span class="dlc-badge">Expansions & DLC</span>
-          <h2 class="dlc-title">THE DELICIOUS LAST COURSE</h2>
-          <p class="dlc-desc">
-            Jelajahi D.L.C. Isle yang serba baru bersama Ms. Chalice, lengkapi persenjataan baru, dan temukan rahasia di
-            balik resep ajaib Chef Saltbaker dalam pertempuran epik terbesar di dunia Cuphead.
-          </p>
-          <a href="#play" class="btn-primary">Dapatkan Sekarang &rarr;</a>
+        <div class="sequence-scroll-hint">
+          <span>&darr; SCROLL UNTUK MELANJUTKAN FILM &darr;</span>
         </div>
       </div>
     </section>
 
-    <section id="play" class="play-section container">
-      <div class="section-header">
-        <span class="section-tag">Official Releases</span>
-        <h2 class="section-title">READY TO ROLL THE DICE?</h2>
-        <p class="section-desc">Mainkan game orisinal Cuphead langsung melalui distributor dan toko game resmi favorit
-          Anda:</p>
-      </div>
+    <section id="dlc" class="dlc-section">
+      <div class="section-bg-blend" aria-hidden="true"></div>
+      <div class="section-bg-vignette" aria-hidden="true"></div>
 
-      <div class="platform-grid">
-        <a href="https://store.steampowered.com/app/268910/Cuphead/" target="_blank" rel="noopener noreferrer"
-          class="platform-card">
-          Steam Store &rarr;
-        </a>
-        <a href="https://www.xbox.com/en-US/games/store/cuphead/9NJ46SXPBW90" target="_blank" rel="noopener noreferrer"
-          class="platform-card">
-          Xbox One / Series &rarr;
-        </a>
-        <a href="https://store.playstation.com/en-us/product/UP8062-CUSA20499_00-CUPHEAD000000001" target="_blank"
-          rel="noopener noreferrer" class="platform-card">
-          PlayStation 4/5 &rarr;
-        </a>
-        <a href="https://www.nintendo.com/us/store/products/cuphead-switch/" target="_blank" rel="noopener noreferrer"
-          class="platform-card">
-          Nintendo Switch &rarr;
-        </a>
+      <div class="container section-content-relative">
+        <div class="dlc-banner-card">
+          <div class="dlc-overlay-content">
+            <span class="dlc-badge">Expansions & DLC</span>
+            <h2 class="dlc-title">THE DELICIOUS LAST COURSE</h2>
+            <p class="dlc-desc">
+              Jelajahi D.L.C. Isle yang serba baru bersama Ms. Chalice, lengkapi persenjataan baru, dan temukan rahasia di
+              balik resep ajaib Chef Saltbaker dalam pertempuran epik terbesar di dunia Cuphead.
+            </p>
+            <a href="#play" class="btn-primary">Dapatkan Sekarang &rarr;</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="play" class="play-section">
+      <div class="section-bg-blend" aria-hidden="true"></div>
+      <div class="section-bg-vignette" aria-hidden="true"></div>
+
+      <div class="container section-content-relative">
+        <div class="section-header">
+          <span class="section-tag">Official Releases</span>
+          <h2 class="section-title">READY TO ROLL THE DICE?</h2>
+          <p class="section-desc">Mainkan game orisinal Cuphead langsung melalui distributor dan toko game resmi favorit Anda:</p>
+        </div>
+
+        <div class="platform-grid">
+          <a href="https://store.steampowered.com/app/268910/Cuphead/" target="_blank" rel="noopener noreferrer"
+            class="platform-card">
+            Steam Store &rarr;
+          </a>
+          <a href="https://www.xbox.com/en-US/games/store/cuphead/9NJ46SXPBW90" target="_blank" rel="noopener noreferrer"
+            class="platform-card">
+            Xbox One / Series &rarr;
+          </a>
+          <a href="https://store.playstation.com/en-us/product/UP8062-CUSA20499_00-CUPHEAD000000001" target="_blank"
+            rel="noopener noreferrer" class="platform-card">
+            PlayStation 4/5 &rarr;
+          </a>
+          <a href="https://www.nintendo.com/us/store/products/cuphead-switch/" target="_blank" rel="noopener noreferrer"
+            class="platform-card">
+            Nintendo Switch &rarr;
+          </a>
+        </div>
       </div>
     </section>
   </main>

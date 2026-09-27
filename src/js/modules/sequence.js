@@ -66,19 +66,22 @@ export function initLandingSequence() {
   const canvas = document.getElementById('sequence-canvas');
   if (!container || !canvas) return;
 
-  const ctx = canvas.getContext('2d');
+  const ctx = canvas.getContext('2d', { alpha: false });
   const frameImages = [];
-  let bgImage = new Image();
-  let fgLeftImage = new Image();
-  let fgRightImage = new Image();
+  const bgImage = new Image();
+  const fgLeftImage = new Image();
+  const fgRightImage = new Image();
 
   bgImage.src = BG_SRC;
   fgLeftImage.src = FG_LEFT_SRC;
   fgRightImage.src = FG_RIGHT_SRC;
 
-  FRAME_FILES.forEach((file) => {
+  FRAME_FILES.forEach((file, index) => {
     const img = new Image();
     img.src = BASE_PATH + 'Chef Saltbaker/' + file;
+    if (index === 0) {
+      img.onload = () => render(0);
+    }
     frameImages.push(img);
   });
 
@@ -89,25 +92,23 @@ export function initLandingSequence() {
     { el: document.getElementById('seq-cap-4'), start: 0.76, end: 0.97 }
   ];
 
-  let currentProgress = 0;
-  let targetProgress = 0;
+  let currentProgress = -1;
 
   function resizeCanvas() {
     const dpr = Math.min(window.devicePixelRatio || 1, 2);
-    canvas.width = window.innerWidth * dpr;
-    canvas.height = window.innerHeight * dpr;
+    canvas.width = Math.floor(window.innerWidth * dpr);
+    canvas.height = Math.floor(window.innerHeight * dpr);
     canvas.style.width = window.innerWidth + 'px';
     canvas.style.height = window.innerHeight + 'px';
-    render(currentProgress);
+    currentProgress = -1;
+    updateProgress();
   }
-
-  window.addEventListener('resize', resizeCanvas);
-  resizeCanvas();
 
   function render(prog) {
     const w = canvas.width;
     const h = canvas.height;
-    ctx.clearRect(0, 0, w, h);
+    ctx.fillStyle = '#0E0B09';
+    ctx.fillRect(0, 0, w, h);
 
     const baseW = 1320;
     const baseH = 740;
@@ -121,14 +122,14 @@ export function initLandingSequence() {
       ctx.drawImage(bgImage, destX, destY, destW, destH);
     }
 
-    const frameIdx = Math.min(frameImages.length - 1, Math.max(0, Math.floor(prog * frameImages.length)));
+    const frameIdx = Math.min(frameImages.length - 1, Math.max(0, Math.floor(prog * (frameImages.length - 1))));
     const curFrame = frameImages[frameIdx];
 
     if (curFrame && curFrame.complete && curFrame.naturalWidth > 0) {
       ctx.drawImage(curFrame, destX, destY, destW, destH);
     }
 
-    const parallax = (prog - 0.5) * 40 * (w / 1320);
+    const parallax = (prog - 0.5) * 50 * (w / 1320);
 
     if (fgLeftImage.complete && fgLeftImage.naturalWidth > 0) {
       ctx.drawImage(fgLeftImage, destX - parallax, destY, destW, destH);
@@ -148,22 +149,22 @@ export function initLandingSequence() {
     });
   }
 
-  function loop() {
+  function updateProgress() {
     const rect = container.getBoundingClientRect();
     const scrollRange = container.offsetHeight - window.innerHeight;
-    if (scrollRange > 0) {
-      const rawProg = -rect.top / scrollRange;
-      targetProgress = Math.min(1, Math.max(0, rawProg));
-    }
+    if (scrollRange <= 0) return;
 
-    const delta = targetProgress - currentProgress;
-    if (Math.abs(delta) > 0.0005) {
-      currentProgress += delta * 0.14;
+    const rawProg = -rect.top / scrollRange;
+    const clamped = Math.min(1, Math.max(0, rawProg));
+
+    if (Math.abs(clamped - currentProgress) > 0.0008) {
+      currentProgress = clamped;
       render(currentProgress);
     }
-
-    requestAnimationFrame(loop);
   }
 
-  requestAnimationFrame(loop);
+  window.addEventListener('resize', resizeCanvas, { passive: true });
+  window.addEventListener('scroll', updateProgress, { passive: true });
+
+  resizeCanvas();
 }

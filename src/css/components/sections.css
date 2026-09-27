@@ -4,7 +4,7 @@
   left: 0;
   width: 100%;
   z-index: 800;
-  background: rgba(13, 11, 9, 0.88);
+  background: rgba(13, 11, 9, 0.92);
   backdrop-filter: blur(8px);
   border-bottom: 2px solid var(--color-ink);
   transition: var(--transition-fast);
@@ -49,9 +49,60 @@
   text-shadow: 0 0 8px rgba(227, 166, 62, 0.6);
 }
 
+.nav-link--cta {
+  color: var(--color-crimson) !important;
+  font-weight: bold;
+}
+
+.section-with-bg {
+  position: relative;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  overflow: hidden;
+}
+
+.section-bg-blend {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: linear-gradient(
+    180deg,
+    var(--color-tv-dark) 0%,
+    rgba(14, 11, 9, 0.72) 14%,
+    rgba(14, 11, 9, 0.8) 50%,
+    rgba(14, 11, 9, 0.72) 86%,
+    var(--color-tv-dark) 100%
+  );
+  z-index: 1;
+}
+
+.section-bg-vignette {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: radial-gradient(
+    ellipse at center,
+    rgba(0, 0, 0, 0.15) 20%,
+    rgba(14, 11, 9, 0.7) 70%,
+    var(--color-tv-dark) 100%
+  );
+  z-index: 1;
+}
+
+.section-content-relative {
+  position: relative;
+  z-index: 2;
+}
+
 .story-section {
   position: relative;
-  padding-block: var(--space-3xl);
+  padding-block: var(--space-4xl);
+  background-image: url('../../assets/background/king-dice-room.jpeg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  overflow: hidden;
   z-index: 2;
 }
 
@@ -65,6 +116,8 @@
   display: grid;
   grid-template-columns: 1fr;
   gap: var(--space-xl);
+  position: relative;
+  z-index: 2;
 }
 
 @media (min-width: 768px) {
@@ -103,7 +156,12 @@
 
 .characters-section {
   position: relative;
-  padding-block: var(--space-3xl);
+  padding-block: var(--space-4xl);
+  background-image: url('../../assets/background/porkrind-shop.jpeg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  overflow: hidden;
   z-index: 2;
 }
 
@@ -113,6 +171,8 @@
   gap: var(--space-xl);
   max-width: 1100px;
   margin-inline: auto;
+  position: relative;
+  z-index: 2;
 }
 
 .character-card {
@@ -131,7 +191,7 @@
 }
 
 .character-avatar-wrap {
-  height: 220px;
+  height: 240px;
   background: var(--color-cream-subtle);
   border-bottom: var(--border-ink-thin);
   display: flex;
@@ -139,13 +199,14 @@
   align-items: center;
   padding: var(--space-md);
   position: relative;
+  overflow: hidden;
 }
 
 .character-avatar-wrap::after {
   content: '';
   position: absolute;
-  width: 140px;
-  height: 140px;
+  width: 160px;
+  height: 160px;
   border-radius: 50%;
   background: rgba(227, 166, 62, 0.25);
   filter: blur(10px);
@@ -153,15 +214,47 @@
 }
 
 .character-avatar {
-  max-height: 170px;
+  max-height: 190px;
   position: relative;
   z-index: 1;
   filter: drop-shadow(0 6px 8px rgba(0, 0, 0, 0.4));
   transition: transform var(--transition-fast);
 }
 
-.character-card:hover .character-avatar {
-  transform: scale(1.06);
+.character-avatar--cuphead {
+  transform: scale(2.4);
+  transform-origin: center center;
+}
+
+.character-card:hover .character-avatar--cuphead {
+  transform: scale(2.55);
+}
+
+.character-avatar--mugman {
+  transform: scale(1.15);
+  transform-origin: center center;
+}
+
+.character-card:hover .character-avatar--mugman {
+  transform: scale(1.22);
+}
+
+.character-avatar--chalice {
+  transform: scale(1.15);
+  transform-origin: center center;
+}
+
+.character-card:hover .character-avatar--chalice {
+  transform: scale(1.22);
+}
+
+.character-avatar--saltbaker {
+  transform: scale(1.2);
+  transform-origin: center center;
+}
+
+.character-card:hover .character-avatar--saltbaker {
+  transform: scale(1.28);
 }
 
 .character-details {
@@ -196,7 +289,12 @@
 
 .gameplay-section {
   position: relative;
-  padding-block: var(--space-3xl);
+  padding-block: var(--space-4xl);
+  background-image: url('../../assets/background/carnival-kerfuffle.jpeg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  overflow: hidden;
   z-index: 2;
 }
 
@@ -206,10 +304,13 @@
   gap: var(--space-lg);
   max-width: 1100px;
   margin-inline: auto;
+  position: relative;
+  z-index: 2;
 }
 
 .gameplay-card {
-  background: #191612;
+  background: rgba(25, 22, 18, 0.94);
+  backdrop-filter: blur(4px);
   border: var(--border-ink-thick);
   border-color: var(--color-mustard);
   box-shadow: 4px 4px 0px rgba(0, 0, 0, 0.9);
@@ -219,6 +320,12 @@
   color: var(--color-cream);
   text-align: center;
   align-items: center;
+  transition: transform var(--transition-fast), box-shadow var(--transition-fast);
+}
+
+.gameplay-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-cartoon-lg);
 }
 
 .gameplay-icon-wrap {
@@ -249,126 +356,14 @@
   line-height: 1.45;
 }
 
-.dlc-section {
-  position: relative;
-  padding-block: var(--space-4xl);
-  z-index: 2;
-}
-
-.dlc-banner-card {
-  position: relative;
-  max-width: 1100px;
-  margin-inline: auto;
-  border: 6px solid var(--color-ink);
-  border-radius: 12px;
-  overflow: hidden;
-  box-shadow: var(--shadow-cartoon-lg);
-  background-color: #1A1510;
-  background-size: cover;
-  background-position: center;
-}
-
-.dlc-overlay-content {
-  padding: clamp(2rem, 5vw, 4rem);
-  background: linear-gradient(90deg,
-      rgba(14, 11, 9, 0.95) 0%,
-      rgba(14, 11, 9, 0.85) 50%,
-      rgba(14, 11, 9, 0.5) 100%);
-  max-width: 620px;
-}
-
-.dlc-badge {
-  display: inline-block;
-  background: var(--color-mustard);
-  color: var(--color-ink);
-  padding: 0.25rem 0.75rem;
-  font-family: var(--font-display);
-  font-size: 0.85rem;
-  letter-spacing: 1.5px;
-  text-transform: uppercase;
-  border: var(--border-ink-thin);
-  margin-bottom: var(--space-sm);
-}
-
-.dlc-title {
-  font-family: var(--font-display);
-  font-size: clamp(2rem, 4vw, 3rem);
-  color: var(--color-crimson);
-  line-height: 1.15;
-  margin-bottom: var(--space-md);
-  text-shadow: 2px 2px 0px var(--color-ink);
-}
-
-.dlc-desc {
-  font-family: var(--font-body);
-  font-size: 1.1rem;
-  color: var(--color-cream);
-  line-height: 1.55;
-  margin-bottom: var(--space-lg);
-}
-
-.play-section {
-  position: relative;
-  padding-block: var(--space-4xl);
-  text-align: center;
-  z-index: 2;
-}
-
-.platform-grid {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: var(--space-md);
-  max-width: 860px;
-  margin-inline: auto;
-  margin-top: var(--space-xl);
-}
-
-.platform-card {
-  flex: 1 1 180px;
-  padding: var(--space-lg) var(--space-md);
-  background: var(--color-cream);
-  border: var(--border-ink-thick);
-  box-shadow: var(--shadow-cartoon);
-  color: var(--color-ink);
-  font-family: var(--font-display);
-  font-size: 1.15rem;
-  letter-spacing: 1px;
-  text-transform: uppercase;
-  transition: var(--transition-fast);
-}
-
-.platform-card:hover {
-  transform: translate(-3px, -3px);
-  box-shadow: var(--shadow-cartoon-lg);
-  background: #FFFFFF;
-}
-
 .bosses-section {
   position: relative;
   padding-block: var(--space-4xl);
-  background-image: url('../../assets/images/Saltbaker\'s Bakery/Bakery/12-bakery_bg_main.png');
+  background-image: url('../../assets/background/botanic-panic.jpeg');
   background-size: cover;
   background-position: center top;
-  background-attachment: scroll;
-  z-index: 2;
-}
-
-.bosses-backdrop-overlay {
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(
-    180deg,
-    rgba(14, 11, 9, 0.96) 0%,
-    rgba(14, 11, 9, 0.86) 35%,
-    rgba(14, 11, 9, 0.88) 75%,
-    rgba(14, 11, 9, 0.98) 100%
-  );
-  z-index: 1;
-}
-
-.bosses-content-wrap {
-  position: relative;
+  background-repeat: no-repeat;
+  overflow: hidden;
   z-index: 2;
 }
 
@@ -378,6 +373,8 @@
   gap: var(--space-xl);
   max-width: 1200px;
   margin-inline: auto;
+  position: relative;
+  z-index: 2;
 }
 
 .boss-card {
@@ -468,9 +465,112 @@
   line-height: 1.45;
 }
 
-.nav-link--cta {
-  color: var(--color-crimson) !important;
-  font-weight: bold;
+.dlc-section {
+  position: relative;
+  padding-block: var(--space-4xl);
+  background-image: url('../../assets/images/Saltbaker\'s Bakery/Bakery/12-bakery_bg_main.png');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  overflow: hidden;
+  z-index: 2;
+}
+
+.dlc-banner-card {
+  position: relative;
+  max-width: 1100px;
+  margin-inline: auto;
+  border: 6px solid var(--color-ink);
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: var(--shadow-cartoon-lg);
+  background-color: #1A1510;
+  background-image: url('../../assets/images/Saltbaker\'s Bakery/Bakery/12-bakery_bg_main.png');
+  background-size: cover;
+  background-position: center;
+}
+
+.dlc-overlay-content {
+  padding: clamp(2rem, 5vw, 4rem);
+  background: linear-gradient(90deg,
+      rgba(14, 11, 9, 0.95) 0%,
+      rgba(14, 11, 9, 0.85) 50%,
+      rgba(14, 11, 9, 0.5) 100%);
+  max-width: 620px;
+}
+
+.dlc-badge {
+  display: inline-block;
+  background: var(--color-mustard);
+  color: var(--color-ink);
+  padding: 0.25rem 0.75rem;
+  font-family: var(--font-display);
+  font-size: 0.85rem;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  border: var(--border-ink-thin);
+  margin-bottom: var(--space-sm);
+}
+
+.dlc-title {
+  font-family: var(--font-display);
+  font-size: clamp(2rem, 4vw, 3rem);
+  color: var(--color-crimson);
+  line-height: 1.15;
+  margin-bottom: var(--space-md);
+  text-shadow: 2px 2px 0px var(--color-ink);
+}
+
+.dlc-desc {
+  font-family: var(--font-body);
+  font-size: 1.1rem;
+  color: var(--color-cream);
+  line-height: 1.55;
+  margin-bottom: var(--space-lg);
+}
+
+.play-section {
+  position: relative;
+  padding-block: var(--space-4xl);
+  text-align: center;
+  z-index: 2;
+  background-image: url('../../assets/background/casino-exterior.jpeg');
+  background-size: cover;
+  background-position: center top;
+  background-repeat: no-repeat;
+  overflow: hidden;
+}
+
+.platform-grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: var(--space-md);
+  max-width: 860px;
+  margin-inline: auto;
+  margin-top: var(--space-xl);
+  position: relative;
+  z-index: 2;
+}
+
+.platform-card {
+  flex: 1 1 180px;
+  padding: var(--space-lg) var(--space-md);
+  background: var(--color-cream);
+  border: var(--border-ink-thick);
+  box-shadow: var(--shadow-cartoon);
+  color: var(--color-ink);
+  font-family: var(--font-display);
+  font-size: 1.15rem;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  transition: var(--transition-fast);
+}
+
+.platform-card:hover {
+  transform: translate(-3px, -3px);
+  box-shadow: var(--shadow-cartoon-lg);
+  background: #FFFFFF;
 }
 
 .site-footer {

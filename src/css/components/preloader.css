@@ -19,6 +19,10 @@
   pointer-events: none;
 }
 
+body.is-preloading {
+  overflow: hidden !important;
+}
+
 .preloader-stage {
   position: relative;
   width: 100%;

@@ -14,7 +14,7 @@ export const SITE_CONFIG = {
     desktop: 1280
   },
   scroll: {
-    lerp: 0.08,
+    lerp: 0.1,
     smoothWheel: true,
     wheelMultiplier: 1,
     touchMultiplier: 1.2

@@ -8,6 +8,40 @@
   padding-block: var(--space-4xl) var(--space-3xl);
   overflow: hidden;
   text-align: center;
+  background-image: url('../../assets/background/casino-exterior.jpeg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.hero-section::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    180deg,
+    rgba(14, 11, 9, 0.72) 0%,
+    rgba(14, 11, 9, 0.48) 30%,
+    rgba(14, 11, 9, 0.58) 70%,
+    rgba(14, 11, 9, 0.92) 90%,
+    var(--color-tv-dark) 100%
+  );
+  z-index: 1;
+  pointer-events: none;
+}
+
+.hero-section::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(
+    ellipse at center,
+    rgba(0, 0, 0, 0.1) 20%,
+    rgba(14, 11, 9, 0.65) 68%,
+    rgba(14, 11, 9, 0.98) 100%
+  );
+  z-index: 1;
+  pointer-events: none;
 }
 
 .hero-backdrop-glow {
