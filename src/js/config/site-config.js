@@ -14,8 +14,10 @@ export const SITE_CONFIG = {
     desktop: 1280
   },
   scroll: {
-    duration: 1.2,
-    smoothWheel: true
+    lerp: 0.08,
+    smoothWheel: true,
+    wheelMultiplier: 1,
+    touchMultiplier: 1.2
   },
   links: {
     steam: 'https://store.steampowered.com/app/268910/Cuphead/',

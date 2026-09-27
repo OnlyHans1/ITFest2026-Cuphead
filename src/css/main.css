@@ -4,6 +4,7 @@
 @import './components/preloader.css';
 @import './components/hero.css';
 @import './components/trailer.css';
+@import './components/sequence.css';
 @import './components/sections.css';
 
 .container {

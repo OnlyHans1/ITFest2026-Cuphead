@@ -17,12 +17,10 @@
   transform: translate(-50%, -50%);
   width: min(850px, 92vw);
   height: 480px;
-  background: radial-gradient(
-    ellipse at center,
-    rgba(193, 39, 45, 0.22) 0%,
-    rgba(227, 166, 62, 0.12) 40%,
-    transparent 70%
-  );
+  background: radial-gradient(ellipse at center,
+      rgba(193, 39, 45, 0.22) 0%,
+      rgba(227, 166, 62, 0.12) 40%,
+      transparent 70%);
   filter: blur(40px);
   pointer-events: none;
   z-index: 1;
@@ -161,16 +159,33 @@
 }
 
 @keyframes devilPulse {
-  0% { transform: translateX(-50%) scale(0.96); opacity: 0.12; }
-  100% { transform: translateX(-50%) scale(1.03); opacity: 0.22; }
+  0% {
+    transform: translateX(-50%) scale(0.96);
+    opacity: 0.12;
+  }
+
+  100% {
+    transform: translateX(-50%) scale(1.03);
+    opacity: 0.22;
+  }
 }
 
 @keyframes heroTitleFloat {
-  0% { transform: translateY(0); }
-  100% { transform: translateY(-6px); }
+  0% {
+    transform: translateY(0);
+  }
+
+  100% {
+    transform: translateY(-6px);
+  }
 }
 
 @keyframes spriteBounce {
-  0% { transform: translateY(0); }
-  100% { transform: translateY(-4px); }
+  0% {
+    transform: translateY(0);
+  }
+
+  100% {
+    transform: translateY(-4px);
+  }
 }

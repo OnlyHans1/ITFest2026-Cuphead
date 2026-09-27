@@ -270,12 +270,10 @@
 
 .dlc-overlay-content {
   padding: clamp(2rem, 5vw, 4rem);
-  background: linear-gradient(
-    90deg,
-    rgba(14, 11, 9, 0.95) 0%,
-    rgba(14, 11, 9, 0.85) 50%,
-    rgba(14, 11, 9, 0.5) 100%
-  );
+  background: linear-gradient(90deg,
+      rgba(14, 11, 9, 0.95) 0%,
+      rgba(14, 11, 9, 0.85) 50%,
+      rgba(14, 11, 9, 0.5) 100%);
   max-width: 620px;
 }
 
@@ -344,6 +342,135 @@
   transform: translate(-3px, -3px);
   box-shadow: var(--shadow-cartoon-lg);
   background: #FFFFFF;
+}
+
+.bosses-section {
+  position: relative;
+  padding-block: var(--space-4xl);
+  background-image: url('../../assets/images/Saltbaker\'s Bakery/Bakery/12-bakery_bg_main.png');
+  background-size: cover;
+  background-position: center top;
+  background-attachment: scroll;
+  z-index: 2;
+}
+
+.bosses-backdrop-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    180deg,
+    rgba(14, 11, 9, 0.96) 0%,
+    rgba(14, 11, 9, 0.86) 35%,
+    rgba(14, 11, 9, 0.88) 75%,
+    rgba(14, 11, 9, 0.98) 100%
+  );
+  z-index: 1;
+}
+
+.bosses-content-wrap {
+  position: relative;
+  z-index: 2;
+}
+
+.bosses-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: var(--space-xl);
+  max-width: 1200px;
+  margin-inline: auto;
+}
+
+.boss-card {
+  background: var(--color-cream);
+  border: var(--border-ink-thick);
+  box-shadow: var(--shadow-cartoon);
+  padding: var(--space-lg);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  position: relative;
+  transition: transform var(--transition-fast), box-shadow var(--transition-fast);
+}
+
+.boss-card:hover {
+  transform: translateY(-8px) scale(1.02);
+  box-shadow: var(--shadow-cartoon-lg);
+}
+
+.boss-avatar-wrap {
+  width: 170px;
+  height: 170px;
+  border-radius: 50%;
+  border: 4px solid var(--color-ink);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.5), inset 0 0 10px rgba(0, 0, 0, 0.5);
+  overflow: hidden;
+  background: #25201A;
+  margin-bottom: var(--space-md);
+  position: relative;
+}
+
+.boss-avatar-wrap::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  box-shadow: inset 0 0 14px rgba(0, 0, 0, 0.7);
+  pointer-events: none;
+}
+
+.boss-avatar-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform var(--transition-fast);
+}
+
+.boss-card:hover .boss-avatar-img {
+  transform: scale(1.12);
+}
+
+.boss-order-badge {
+  font-family: var(--font-display);
+  font-size: 0.75rem;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  background: var(--color-crimson);
+  color: var(--color-cream);
+  padding: 0.2rem 0.65rem;
+  border: var(--border-ink-thin);
+  margin-bottom: var(--space-xs);
+  transform: rotate(-1deg);
+}
+
+.boss-name {
+  font-family: var(--font-display);
+  font-size: 1.35rem;
+  color: var(--color-crimson);
+  line-height: 1.15;
+  margin-bottom: var(--space-2xs);
+  text-transform: uppercase;
+}
+
+.boss-stage {
+  font-family: var(--font-display);
+  font-size: 0.85rem;
+  letter-spacing: 1px;
+  color: #7A5318;
+  margin-bottom: var(--space-xs);
+  text-transform: uppercase;
+}
+
+.boss-desc {
+  font-family: var(--font-body);
+  font-size: 0.92rem;
+  color: var(--color-ink);
+  line-height: 1.45;
+}
+
+.nav-link--cta {
+  color: var(--color-crimson) !important;
+  font-weight: bold;
 }
 
 .site-footer {
