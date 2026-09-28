@@ -1,4 +1,5 @@
 const COMPONENT_MAP = [
+  { selector: '#preloader-mount', file: './components/preloader.html' },
   { selector: '#header-mount', file: './components/header.html' },
   { selector: '#hero-mount', file: './components/hero.html' },
   { selector: '#trailer-mount', file: './components/trailer.html' },
@@ -13,6 +14,20 @@ const COMPONENT_MAP = [
   { selector: '#play-mount', file: './components/play.html' },
   { selector: '#footer-mount', file: './components/footer.html' }
 ];
+
+export async function loadPreloader() {
+  try {
+    const res = await fetch('./components/preloader.html');
+    if (!res.ok) return;
+    const html = await res.text();
+    const el = document.querySelector('#preloader-mount');
+    if (el) {
+      el.outerHTML = html;
+    }
+  } catch (err) {
+    console.error(err);
+  }
+}
 
 export async function loadComponents() {
   await Promise.all(

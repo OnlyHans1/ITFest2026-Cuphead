@@ -117,7 +117,7 @@
 .story-section {
   position: relative;
   padding-block: clamp(7rem, 15vh, 10.5rem);
-  background-image: url('../../assets/background/king-dice-room.jpeg');
+  background-image: url('../../assets/background/king-dice-room.webp');
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -178,7 +178,7 @@
 .characters-section {
   position: relative;
   padding-block: clamp(7rem, 15vh, 10.5rem);
-  background-image: url('../../assets/background/porkrind-shop.jpeg');
+  background-image: url('../../assets/background/porkrind-shop.webp');
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -313,7 +313,7 @@
 .gameplay-section {
   position: relative;
   padding-block: clamp(7rem, 15vh, 10.5rem);
-  background-image: url('../../assets/background/carnival-kerfuffle.jpeg');
+  background-image: url('../../assets/background/carnival-kerfuffle.webp');
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -384,7 +384,7 @@
 .bosses-section {
   position: relative;
   padding-block: clamp(7rem, 15vh, 10.5rem);
-  background-image: url('../../assets/background/botanic-panic.jpeg');
+  background-image: url('../../assets/background/botanic-panic.webp');
   background-size: cover;
   background-position: center top;
   background-repeat: no-repeat;
@@ -495,7 +495,7 @@
 .dlc-section {
   position: relative;
   padding-block: clamp(7rem, 15vh, 10.5rem);
-  background-image: url('../../assets/images/saltbakerBakery/Bakery/12-bakery_bg_main.png');
+  background-image: url('../../assets/images/saltbakerBakery/Bakery/12-bakery_bg_main.webp');
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -514,7 +514,7 @@
   overflow: hidden;
   box-shadow: var(--shadow-cartoon-lg);
   background-color: #1A1510;
-  background-image: url('../../assets/images/saltbakerBakery/Bakery/12-bakery_bg_main.png');
+  background-image: url('../../assets/images/saltbakerBakery/Bakery/12-bakery_bg_main.webp');
   background-size: cover;
   background-position: center;
 }
@@ -563,7 +563,7 @@
   padding-block: clamp(7rem, 15vh, 10.5rem);
   text-align: center;
   z-index: 2;
-  background-image: url('../../assets/background/casino-exterior.jpeg');
+  background-image: url('../../assets/background/casino-exterior.webp');
   background-size: cover;
   background-position: center top;
   background-repeat: no-repeat;
