@@ -3,7 +3,7 @@
   height: 280vh;
   background-color: #000000;
   z-index: 3;
-  margin-block-end: 3.5rem;
+  margin-block-end: 0 !important;
 }
 
 .sequence-section::before {
@@ -29,6 +29,30 @@
   z-index: 5;
   pointer-events: none;
 }
+
+#sequence-devil {
+  margin-block-end: 0 !important;
+}
+
+#sequence-devil::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 420px;
+  background: linear-gradient(
+    180deg,
+    transparent 0%,
+    rgba(0, 0, 0, 0.35) 20%,
+    rgba(5, 4, 3, 0.85) 55%,
+    rgba(5, 4, 3, 0.98) 85%,
+    #050403 100%
+  );
+  z-index: 10;
+  pointer-events: none;
+}
+
 
 .sequence-sticky {
   position: sticky;
@@ -109,12 +133,10 @@
   inset: 0;
   z-index: 2;
   pointer-events: none;
-  background: radial-gradient(
-    ellipse at center,
-    transparent 55%,
-    rgba(14, 11, 9, 0.25) 85%,
-    rgba(14, 11, 9, 0.55) 100%
-  );
+  background: radial-gradient(ellipse at center,
+      transparent 55%,
+      rgba(14, 11, 9, 0.25) 85%,
+      rgba(14, 11, 9, 0.55) 100%);
 }
 
 .sequence-captions-layer {
@@ -221,8 +243,15 @@
 }
 
 @keyframes pulseHint {
-  0% { opacity: 0.4; transform: translateX(-50%) translateY(0); }
-  100% { opacity: 1; transform: translateX(-50%) translateY(5px); }
+  0% {
+    opacity: 0.4;
+    transform: translateX(-50%) translateY(0);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateX(-50%) translateY(5px);
+  }
 }
 
 @media (max-width: 768px) {

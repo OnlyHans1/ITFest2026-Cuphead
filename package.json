@@ -4,9 +4,11 @@
   "description": "Website tribute fan-made Cuphead - Lomba Web Development IT FEST 2026",
   "scripts": {
     "dev": "serve src -l 3000",
+    "build": "echo 'Static build ready'",
     "start": "serve src -l 3000",
     "detect": "impeccable detect src/"
   },
+
   "devDependencies": {
     "impeccable": "^4.1.0",
     "serve": "^14.2.4"
