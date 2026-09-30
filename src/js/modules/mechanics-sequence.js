@@ -142,6 +142,12 @@ export function initMechanicsSequences() {
       card.addEventListener('mouseleave', () => {
         speedMultiplier = 1;
       });
+      card.addEventListener('touchstart', () => {
+        speedMultiplier = 1.35;
+      }, { passive: true });
+      card.addEventListener('touchend', () => {
+        speedMultiplier = 1;
+      }, { passive: true });
     }
 
     window.addEventListener('resize', () => {

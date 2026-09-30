@@ -2,11 +2,17 @@ import { getLenis } from '../core/scroll-setup.js';
 
 export function initNavigation() {
   const header = document.querySelector('.site-header');
+  const burgerBtn = document.getElementById('btn-nav-burger');
+  const navMenu = document.getElementById('main-nav-menu');
+  const navBackdrop = document.getElementById('nav-backdrop');
+
   let lastScrollY = window.scrollY || 0;
   let isHidden = false;
 
   function setHeaderVisibility(hide) {
     if (!header) return;
+    if (burgerBtn && burgerBtn.classList.contains('is-active')) return;
+
     if (hide && !isHidden) {
       header.classList.add('header--hidden');
       isHidden = true;
@@ -18,6 +24,7 @@ export function initNavigation() {
 
   function handleScroll(direction, currentY) {
     if (!header) return;
+    if (burgerBtn && burgerBtn.classList.contains('is-active')) return;
 
     if (currentY <= 60) {
       setHeaderVisibility(false);
@@ -50,6 +57,50 @@ export function initNavigation() {
     }
   }, { passive: true });
 
+  function openMobileMenu() {
+    if (!burgerBtn || !navMenu) return;
+    burgerBtn.classList.add('is-active');
+    burgerBtn.setAttribute('aria-expanded', 'true');
+    navMenu.classList.add('is-open');
+    if (navBackdrop) navBackdrop.classList.add('is-open');
+    document.body.classList.add('menu-open');
+  }
+
+  function closeMobileMenu() {
+    if (!burgerBtn || !navMenu) return;
+    burgerBtn.classList.remove('is-active');
+    burgerBtn.setAttribute('aria-expanded', 'false');
+    navMenu.classList.remove('is-open');
+    if (navBackdrop) navBackdrop.classList.remove('is-open');
+    document.body.classList.remove('menu-open');
+  }
+
+  if (burgerBtn) {
+    burgerBtn.addEventListener('click', () => {
+      const isOpen = burgerBtn.classList.contains('is-active');
+      if (isOpen) {
+        closeMobileMenu();
+      } else {
+        openMobileMenu();
+      }
+    });
+  }
+
+  if (navBackdrop) {
+    navBackdrop.addEventListener('click', closeMobileMenu);
+  }
+
+  window.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') {
+      closeMobileMenu();
+    }
+  });
+
+  window.addEventListener('resize', () => {
+    if (window.innerWidth > 900) {
+      closeMobileMenu();
+    }
+  });
 
   const links = document.querySelectorAll('a[href^="#"]');
   const sections = document.querySelectorAll('section[id]');
@@ -62,6 +113,7 @@ export function initNavigation() {
       const targetEl = document.querySelector(targetId);
       if (targetEl) {
         e.preventDefault();
+        closeMobileMenu();
         const lenisInst = getLenis();
         if (lenisInst) {
           lenisInst.scrollTo(targetEl, { offset: -60, duration: 1.2 });
@@ -137,4 +189,3 @@ function initPlayModal() {
     }
   });
 }
-

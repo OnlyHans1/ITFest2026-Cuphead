@@ -11,7 +11,11 @@
   width: 100%;
   max-width: 1200px;
   margin-inline: auto;
-  padding-inline: var(--space-lg);
+  padding-inline: clamp(1rem, 4vw, var(--space-lg));
+}
+
+body.menu-open {
+  overflow: hidden !important;
 }
 
 .text-crimson { color: var(--color-crimson); }

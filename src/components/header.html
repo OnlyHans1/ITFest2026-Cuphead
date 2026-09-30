@@ -4,14 +4,20 @@
       <img src="./assets/web/logo.webp" alt="Cuphead Devil Emblem" style="height: 34px; width: auto;">
       <span>CUPHEAD</span>
     </a>
-    <nav>
+    <button class="nav-burger-btn" id="btn-nav-burger" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="main-nav-menu">
+      <span class="burger-bar burger-bar--1"></span>
+      <span class="burger-bar burger-bar--2"></span>
+      <span class="burger-bar burger-bar--3"></span>
+    </button>
+    <div class="nav-backdrop" id="nav-backdrop" aria-hidden="true"></div>
+    <nav class="site-nav" id="main-nav-menu" aria-label="Main Navigation">
       <ul class="nav-links">
         <li><a href="#story" class="nav-link">Story</a></li>
         <li><a href="#characters" class="nav-link">Characters</a></li>
         <li><a href="#sequence-saltbaker" class="nav-link">Secret Reels</a></li>
-        <li><a href="#dlc" class="nav-link">News &amp; DLC</a></li>
+        <li><a href="#news" class="nav-link">News</a></li>
+        <li><a href="#dlc" class="nav-link">DLC</a></li>
         <li><a href="#play" class="nav-link nav-link--cta">Play Now</a></li>
-
       </ul>
     </nav>
   </div>

@@ -226,3 +226,51 @@
     transform: translateY(-4px);
   }
 }
+
+@media (max-width: 768px) {
+  .hero-section {
+    padding-block: clamp(5rem, 12vh, 6.5rem) clamp(2.5rem, 6vh, 4rem);
+    margin-block-end: 2rem;
+  }
+
+  .hero-title-img-wrap {
+    max-width: min(460px, 92vw);
+    margin-bottom: var(--space-md);
+  }
+
+  .hero-tagline {
+    font-size: clamp(0.95rem, 3.8vw, 1.2rem);
+    margin-bottom: var(--space-lg);
+    padding-inline: 0.5rem;
+  }
+
+  .hero-actions {
+    flex-direction: column;
+    align-items: center;
+    gap: 0.75rem;
+    width: 100%;
+    margin-bottom: var(--space-xl);
+  }
+
+  .btn-primary,
+  .btn-secondary {
+    width: min(100%, 280px);
+    justify-content: center;
+    padding: 0.8rem 1.4rem;
+    font-size: 1.05rem;
+  }
+
+  .hero-cuphead-sprite-wrap {
+    width: clamp(95px, 22vw, 120px);
+  }
+
+  .hero-devil-silhouette {
+    width: min(280px, 75vw);
+    top: 16%;
+  }
+
+  .hero-badge {
+    font-size: 0.75rem;
+    padding: 0.25rem 0.75rem;
+  }
+}

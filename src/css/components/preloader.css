@@ -233,3 +233,30 @@ body.is-preloading {
   48% { opacity: 0.65; }
   52% { opacity: 0.95; }
 }
+
+@media (max-width: 768px) {
+  .preloader-stage {
+    margin-bottom: clamp(2rem, 8vh, 5rem);
+  }
+
+  .preloader-cup-wrap {
+    width: clamp(140px, 35vw, 190px);
+  }
+
+  .preloader-spotlight {
+    width: 320px;
+    height: 180px;
+  }
+
+  .preloader-menu-item {
+    font-size: 1.15rem;
+  }
+
+  .preloader-bar-bg {
+    width: 180px;
+  }
+
+  .preloader-title {
+    font-size: 1.25rem;
+  }
+}

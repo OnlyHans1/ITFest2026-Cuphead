@@ -162,3 +162,41 @@
   color: var(--color-ink);
   line-height: 1.5;
 }
+
+@media (max-width: 768px) {
+  .trailer-section {
+    padding-block: clamp(4rem, 10vh, 6.5rem);
+    margin-block-end: 2rem;
+  }
+
+  .section-header {
+    margin-bottom: var(--space-lg);
+  }
+
+  .section-title {
+    font-size: clamp(1.8rem, 6vw, 2.8rem);
+  }
+
+  .section-desc {
+    font-size: clamp(0.95rem, 3vw, 1.05rem);
+  }
+
+  .trailer-tv-cabinet {
+    border-width: 4px;
+    border-radius: 12px;
+    padding: 0.6rem 0.75rem;
+  }
+
+  .trailer-caption-card {
+    padding: 0.85rem 1rem;
+    margin-top: var(--space-sm);
+  }
+
+  .trailer-caption-header {
+    font-size: 0.85rem;
+  }
+
+  .trailer-caption-text {
+    font-size: 0.9rem;
+  }
+}
