@@ -223,6 +223,7 @@ export function initScrollAnimations() {
 
   const gameplayCards = document.querySelectorAll('.gameplay-card');
   gameplayCards.forEach((card, index) => {
+    const icon = card.querySelector('.gameplay-canvas, .gameplay-icon');
     const gpTl = gsap.timeline({
       scrollTrigger: {
         trigger: card,
@@ -231,21 +232,22 @@ export function initScrollAnimations() {
       }
     });
 
-    gpTl
-      .from(card, {
-        y: 40,
+    gpTl.from(card, {
+      y: 40,
+      opacity: 0,
+      duration: 0.7,
+      delay: index * 0.08,
+      ease: 'power2.out'
+    });
+
+    if (icon) {
+      gpTl.from(icon, {
+        scale: 0.75,
         opacity: 0,
         duration: 0.7,
-        delay: index * 0.08,
-        ease: 'power2.out'
-      })
-      .from(card.querySelector('.gameplay-icon'), {
-        scale: 0.45,
-        rotation: -10,
-        opacity: 0,
-        duration: 0.7,
-        ease: 'back.out(2)'
+        ease: 'back.out(1.6)'
       }, '-=0.4');
+    }
   });
 
   const dlcTl = gsap.timeline({

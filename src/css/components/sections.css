@@ -356,16 +356,28 @@
 }
 
 .gameplay-icon-wrap {
-  height: 120px;
+  width: 100%;
+  height: 180px;
   display: flex;
   justify-content: center;
   align-items: center;
   margin-bottom: var(--space-md);
+  position: relative;
 }
 
-.gameplay-icon {
-  max-height: 100px;
-  filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.8));
+.gameplay-canvas {
+  width: auto;
+  height: 160px;
+  max-width: 100%;
+  max-height: 160px;
+  object-fit: contain;
+  filter: drop-shadow(0 6px 14px rgba(0, 0, 0, 0.9));
+  pointer-events: none;
+  transition: transform var(--transition-fast);
+}
+
+.gameplay-card:hover .gameplay-canvas {
+  transform: scale(1.08);
 }
 
 .gameplay-title {

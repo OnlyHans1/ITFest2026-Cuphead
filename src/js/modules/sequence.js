@@ -1,64 +1,11 @@
-const SALTBK_BASE = './assets/images/chefSaltbakerSequence/Shot 1 + 3/';
+const SALTBK_BASE = './assets/images/chefSaltbakerSequence/Frames/';
 const KING_DICE_BASE = './assets/images/kingDiceSequence/Frames/';
 const BAD_ENDING_BASE = './assets/images/badEndingSequence/Frames/';
 
-const SALTBK_FRAMES = [
-  'A/pre_last_boss_cutscene_saltbaker_0001a.webp',
-  'A/pre_last_boss_cutscene_saltbaker_0001b.webp',
-  'A/pre_last_boss_cutscene_saltbaker_0001c.webp',
-  'A-B/pre_last_boss_cutscene_saltbaker_0002.webp',
-  'A-B/pre_last_boss_cutscene_saltbaker_0003.webp',
-  'A-B/pre_last_boss_cutscene_saltbaker_0004.webp',
-  'A-B/pre_last_boss_cutscene_saltbaker_0005.webp',
-  'A-B/pre_last_boss_cutscene_saltbaker_0006.webp',
-  'A-B/pre_last_boss_cutscene_saltbaker_0007.webp',
-  'A-B/pre_last_boss_cutscene_saltbaker_0008.webp',
-  'A-B/pre_last_boss_cutscene_saltbaker_0009.webp',
-  'A-B/pre_last_boss_cutscene_saltbaker_0010.webp',
-  'A-B/pre_last_boss_cutscene_saltbaker_0011.webp',
-  'A-B/pre_last_boss_cutscene_saltbaker_0012.webp',
-  'A-B/pre_last_boss_cutscene_saltbaker_0013.webp',
-  'A-B/pre_last_boss_cutscene_saltbaker_0014.webp',
-  'A-B/pre_last_boss_cutscene_saltbaker_0015.webp',
-  'A-B/pre_last_boss_cutscene_saltbaker_0016.webp',
-  'A-B/pre_last_boss_cutscene_saltbaker_0017.webp',
-  'A-B/pre_last_boss_cutscene_saltbaker_0018.webp',
-  'A-B/pre_last_boss_cutscene_saltbaker_0019.webp',
-  'A-B/pre_last_boss_cutscene_saltbaker_0020.webp',
-  'A-B/pre_last_boss_cutscene_saltbaker_0021.webp',
-  'A-B/pre_last_boss_cutscene_saltbaker_0022.webp',
-  'A-B/pre_last_boss_cutscene_saltbaker_0023.webp',
-  'A-B/pre_last_boss_cutscene_saltbaker_0024.webp',
-  'A-B/pre_last_boss_cutscene_saltbaker_0025.webp',
-  'A-B/pre_last_boss_cutscene_saltbaker_0026.webp',
-  'A-B/pre_last_boss_cutscene_saltbaker_0027.webp',
-  'A-B/pre_last_boss_cutscene_saltbaker_0028.webp',
-  'B/pre_last_boss_cutscene_saltbaker_0029a.webp',
-  'B/pre_last_boss_cutscene_saltbaker_0029b.webp',
-  'B/pre_last_boss_cutscene_saltbaker_0029c.webp',
-  'B-C/pre_last_boss_cutscene_saltbaker_0030.webp',
-  'B-C/pre_last_boss_cutscene_saltbaker_0031.webp',
-  'B-C/pre_last_boss_cutscene_saltbaker_0032.webp',
-  'B-C/pre_last_boss_cutscene_saltbaker_0033.webp',
-  'B-C/pre_last_boss_cutscene_saltbaker_0034.webp',
-  'B-C/pre_last_boss_cutscene_saltbaker_0035.webp',
-  'B-C/pre_last_boss_cutscene_saltbaker_0036.webp',
-  'C/pre_last_boss_cutscene_saltbaker_0037a.webp',
-  'C/pre_last_boss_cutscene_saltbaker_0037b.webp',
-  'C/pre_last_boss_cutscene_saltbaker_0037c.webp',
-  'C-D/pre_last_boss_cutscene_saltbaker_0038.webp',
-  'C-D/pre_last_boss_cutscene_saltbaker_0039.webp',
-  'C-D/pre_last_boss_cutscene_saltbaker_0040.webp',
-  'C-D/pre_last_boss_cutscene_saltbaker_0041.webp',
-  'C-D/pre_last_boss_cutscene_saltbaker_0042.webp',
-  'C-D/pre_last_boss_cutscene_saltbaker_0043.webp',
-  'C-D/pre_last_boss_cutscene_saltbaker_0044.webp',
-  'C-D/pre_last_boss_cutscene_saltbaker_0045.webp',
-  'C-D/pre_last_boss_cutscene_saltbaker_0046.webp',
-  'D/pre_last_boss_cutscene_saltbaker_0047a.webp',
-  'D/pre_last_boss_cutscene_saltbaker_0047b.webp',
-  'D/pre_last_boss_cutscene_saltbaker_0047c.webp'
-];
+const SALTBK_FRAMES = Array.from({ length: 55 }, (_, i) => {
+  const num = String(i + 1).padStart(4, '0');
+  return `chef_saltbaker_frame_${num}.webp`;
+});
 
 const KING_DICE_FRAMES = Array.from({ length: 38 }, (_, i) => {
   const num = String(i + 1).padStart(4, '0');
@@ -77,22 +24,6 @@ function createScrollSequence(config) {
 
   const ctx = canvas.getContext('2d', { alpha: false });
   const frames = [];
-  let bgImg = null;
-  let fgLeftImg = null;
-  let fgRightImg = null;
-
-  if (config.bg) {
-    bgImg = new Image();
-    bgImg.src = config.bg;
-  }
-  if (config.fgLeft) {
-    fgLeftImg = new Image();
-    fgLeftImg.src = config.fgLeft;
-  }
-  if (config.fgRight) {
-    fgRightImg = new Image();
-    fgRightImg.src = config.fgRight;
-  }
 
   config.files.forEach((f, idx) => {
     const img = new Image();
@@ -149,53 +80,23 @@ function createScrollSequence(config) {
     );
     const frameImg = frames[frameIdx];
 
-    if (config.mode === 'cutscene') {
-      const targetAspect = 1459 / 770;
+    if (frameImg && frameImg.complete && frameImg.naturalWidth > 0) {
+      const imgAspect = frameImg.naturalWidth / frameImg.naturalHeight;
       let drawW, drawH, drawX, drawY;
 
-      if (w / h > targetAspect) {
-        drawW = w;
-        drawH = w / targetAspect;
-        drawX = 0;
-        drawY = (h - drawH) / 2;
-      } else {
+      if (w / h > imgAspect) {
         drawH = h;
-        drawW = h * targetAspect;
+        drawW = h * imgAspect;
         drawX = (w - drawW) / 2;
         drawY = 0;
+      } else {
+        drawW = w;
+        drawH = w / imgAspect;
+        drawX = 0;
+        drawY = (h - drawH) / 2;
       }
 
-      if (bgImg && bgImg.complete && bgImg.naturalWidth > 0) {
-        ctx.drawImage(bgImg, drawX, drawY, drawW, drawH);
-      }
-      if (frameImg && frameImg.complete && frameImg.naturalWidth > 0) {
-        ctx.drawImage(frameImg, drawX, drawY, drawW, drawH);
-      }
-      if (fgLeftImg && fgLeftImg.complete && fgLeftImg.naturalWidth > 0) {
-        ctx.drawImage(fgLeftImg, drawX, drawY, drawW, drawH);
-      }
-      if (fgRightImg && fgRightImg.complete && fgRightImg.naturalWidth > 0) {
-        ctx.drawImage(fgRightImg, drawX, drawY, drawW, drawH);
-      }
-    } else {
-      if (frameImg && frameImg.complete && frameImg.naturalWidth > 0) {
-        const imgAspect = frameImg.naturalWidth / frameImg.naturalHeight;
-        let drawW, drawH, drawX, drawY;
-
-        if (w / h > imgAspect) {
-          drawH = h;
-          drawW = h * imgAspect;
-          drawX = (w - drawW) / 2;
-          drawY = 0;
-        } else {
-          drawW = w;
-          drawH = w / imgAspect;
-          drawX = 0;
-          drawY = (h - drawH) / 2;
-        }
-
-        ctx.drawImage(frameImg, drawX, drawY, drawW, drawH);
-      }
+      ctx.drawImage(frameImg, drawX, drawY, drawW, drawH);
     }
 
     captionElements.forEach(cap => {
@@ -240,12 +141,8 @@ export function initLandingSequence() {
     sectionId: 'sequence-saltbaker',
     canvasId: 'sequence-canvas-saltbaker',
     capPrefix: 'seq-saltbaker-cap',
-    base: SALTBK_BASE + 'Chef Saltbaker/',
-    files: SALTBK_FRAMES,
-    bg: SALTBK_BASE + 'Background/pre_last_boss_shot_1_bg.webp',
-    fgLeft: SALTBK_BASE + 'Background/pre_last_boss_shot_1_fg_left.webp',
-    fgRight: SALTBK_BASE + 'Background/pre_last_boss_shot_1_fg_right.webp',
-    mode: 'cutscene'
+    base: SALTBK_BASE,
+    files: SALTBK_FRAMES
   });
 
   createScrollSequence({
@@ -253,8 +150,7 @@ export function initLandingSequence() {
     canvasId: 'sequence-canvas-king-dice',
     capPrefix: 'seq-king-dice-cap',
     base: KING_DICE_BASE,
-    files: KING_DICE_FRAMES,
-    mode: 'composite'
+    files: KING_DICE_FRAMES
   });
 
   createScrollSequence({
@@ -262,7 +158,6 @@ export function initLandingSequence() {
     canvasId: 'sequence-canvas-devil',
     capPrefix: 'seq-devil-cap',
     base: BAD_ENDING_BASE,
-    files: BAD_ENDING_FRAMES,
-    mode: 'composite'
+    files: BAD_ENDING_FRAMES
   });
 }
