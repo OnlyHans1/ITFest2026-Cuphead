@@ -14,7 +14,7 @@ export function initSmoothScroll(options = {}) {
   }
 
   lenisInstance = new window.Lenis({
-    lerp: 0.1,
+    lerp: 0.04,
     orientation: 'vertical',
     gestureOrientation: 'vertical',
     smoothWheel: true,
