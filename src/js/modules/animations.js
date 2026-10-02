@@ -43,18 +43,6 @@ export function initScrollAnimations() {
       ease: 'back.out(1.8)'
     }, '-=0.5');
 
-  gsap.to('.hero-devil-silhouette', {
-    scrollTrigger: {
-      trigger: '#hero',
-      start: 'top top',
-      end: 'bottom top',
-      scrub: 1
-    },
-    y: 160,
-    scale: 1.25,
-    opacity: 0.38
-  });
-
   gsap.to('.hero-content', {
     scrollTrigger: {
       trigger: '#hero',
@@ -143,23 +131,23 @@ export function initScrollAnimations() {
       stagger: 0.12,
       ease: 'power2.out'
     }, '-=0.5')
-    .from('.story-image', {
-      scale: 0.6,
-      rotation: -8,
+    .from('.story-poster-frame', {
+      scale: 0.85,
+      rotation: -3,
       opacity: 0,
       duration: 0.9,
-      ease: 'back.out(1.8)'
+      ease: 'back.out(1.5)'
     }, '-=0.6');
 
-  gsap.to('.story-image', {
+  gsap.to('.story-poster-frame', {
     scrollTrigger: {
       trigger: '#story',
       start: 'top bottom',
       end: 'bottom top',
       scrub: 1.2
     },
-    y: 25,
-    rotation: 4
+    y: 20,
+    rotation: 2
   });
 
   const characterCards = document.querySelectorAll('.character-card');
@@ -281,34 +269,27 @@ export function initScrollAnimations() {
     }
   });
 
-  dlcTl
-    .from('.dlc-banner-card', {
-      scale: 0.92,
-      y: 50,
-      opacity: 0,
-      duration: 1,
-      ease: 'power3.out'
-    })
-    .from('.dlc-overlay-content > *', {
-      x: -30,
-      opacity: 0,
-      duration: 0.7,
-      stagger: 0.12,
-      ease: 'power2.out'
-    }, '-=0.6');
+  dlcTl.from('.news-card', {
+    scale: 0.92,
+    y: 40,
+    opacity: 0,
+    duration: 0.8,
+    stagger: 0.15,
+    ease: 'power3.out'
+  });
 
-  gsap.from('.platform-card', {
+  gsap.from('.play-cta-duo > *, .platforms-pill-bar', {
     scrollTrigger: {
-      trigger: '.platform-grid',
-      start: 'top 85%',
+      trigger: '#play',
+      start: 'top 80%',
       toggleActions: 'play none none none'
     },
-    scale: 0.88,
+    scale: 0.92,
     y: 30,
     opacity: 0,
     duration: 0.7,
-    stagger: 0.1,
-    ease: 'back.out(1.7)'
+    stagger: 0.12,
+    ease: 'back.out(1.6)'
   });
 
   gsap.from('.site-footer .container > *', {

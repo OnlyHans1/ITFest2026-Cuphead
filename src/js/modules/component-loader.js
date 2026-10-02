@@ -1,5 +1,4 @@
 const COMPONENT_MAP = [
-  { selector: '#preloader-mount', file: './components/preloader.html' },
   { selector: '#header-mount', file: './components/header.html' },
   { selector: '#hero-mount', file: './components/hero.html' },
   { selector: '#trailer-mount', file: './components/trailer.html' },

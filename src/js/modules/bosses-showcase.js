@@ -114,7 +114,7 @@ const BOSS_DATA = [
     isle: 'INKWELL ISLE IV',
     name: 'CHEF SALTBAKER',
     stage: 'A DISH TO DIE FOR',
-    avatar: './assets/images/chefSaltbaker/Idle/NPC_saltbaker_0001.webp',
+    avatar: './assets/images/bossPortraits/pin (11).webp',
     desc: 'Dalang rahasia di balik D.L.C. Isle yang mengkhianati pahlawan demi resep Wondertart penguasa alam astral. Mengubah dapur menjadi medan badai garam, adonan, dan pecahan kaca!',
     threat: 5,
     signature: 'Chef Saltbaker',
@@ -142,7 +142,6 @@ export function initBossesShowcase() {
 
   const prevBtn = document.getElementById('boss-prev-btn');
   const nextBtn = document.getElementById('boss-next-btn');
-  const parryTriggerBtn = document.getElementById('btn-boss-parry-trigger');
   const filterBtns = section.querySelectorAll('.boss-tab-btn');
   const reelItems = section.querySelectorAll('.boss-reel-item');
   const reelTrack = document.getElementById('boss-reel-track');
@@ -343,28 +342,6 @@ export function initBossesShowcase() {
     });
   });
 
-  if (parryTriggerBtn) {
-    parryTriggerBtn.addEventListener('click', () => {
-
-      if (gsap && dossierCard) {
-        gsap.timeline()
-          .to(dossierCard, {
-            x: '+=10',
-            rotation: 1,
-            backgroundColor: '#FFE6F0',
-            duration: 0.05,
-            yoyo: true,
-            repeat: 5
-          })
-          .to(dossierCard, {
-            x: 0,
-            rotation: 0,
-            backgroundColor: '#F5ECDA',
-            duration: 0.15
-          });
-      }
-    });
-  }
 
   if (dossierCard && portraitFrame) {
     dossierCard.addEventListener('mousemove', (e) => {

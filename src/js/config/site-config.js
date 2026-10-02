@@ -21,7 +21,7 @@ export const SITE_CONFIG = {
   },
   links: {
     steam: 'https://store.steampowered.com/app/268910/Cuphead/',
-    xbox: 'https://www.xbox.com/en-US/games/store/cuphead/9NJ46SXPBW90',
+    xbox: 'https://www.xbox.com/en-US/games/store/cuphead/9njrx71m5x9p',
     playstation: 'https://store.playstation.com/en-us/product/UP8062-CUSA20499_00-CUPHEAD000000001',
     switch: 'https://www.nintendo.com/us/store/products/cuphead-switch/'
   }

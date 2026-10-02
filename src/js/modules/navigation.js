@@ -46,16 +46,16 @@ export function initNavigation() {
       const dir = typeof e.direction !== 'undefined' ? e.direction : (e.scroll > lastScrollY ? 1 : -1);
       handleScroll(dir, e.scroll);
     });
+  } else {
+    window.addEventListener('scroll', () => {
+      const currentY = window.scrollY || 0;
+      const diff = currentY - lastScrollY;
+      if (Math.abs(diff) > 4) {
+        const dir = diff > 0 ? 1 : -1;
+        handleScroll(dir, currentY);
+      }
+    }, { passive: true });
   }
-
-  window.addEventListener('scroll', () => {
-    const currentY = window.scrollY || 0;
-    const diff = currentY - lastScrollY;
-    if (Math.abs(diff) > 4) {
-      const dir = diff > 0 ? 1 : -1;
-      handleScroll(dir, currentY);
-    }
-  }, { passive: true });
 
   function openMobileMenu() {
     if (!burgerBtn || !navMenu) return;

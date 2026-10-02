@@ -63,18 +63,6 @@
   z-index: 1;
 }
 
-.hero-devil-silhouette {
-  position: absolute;
-  top: 15%;
-  left: 50%;
-  transform: translateX(-50%);
-  width: min(420px, 75vw);
-  opacity: 0.16;
-  filter: drop-shadow(0 0 25px rgba(193, 39, 45, 0.5));
-  pointer-events: none;
-  z-index: 1;
-  animation: devilPulse 6s ease-in-out infinite alternate;
-}
 
 .hero-content {
   position: relative;
@@ -195,17 +183,6 @@
   height: auto;
 }
 
-@keyframes devilPulse {
-  0% {
-    transform: translateX(-50%) scale(0.96);
-    opacity: 0.12;
-  }
-
-  100% {
-    transform: translateX(-50%) scale(1.03);
-    opacity: 0.22;
-  }
-}
 
 @keyframes heroTitleFloat {
   0% {
