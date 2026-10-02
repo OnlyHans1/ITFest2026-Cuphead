@@ -6,6 +6,7 @@ import { initNavigation } from './modules/navigation.js';
 import { initScrollAnimations } from './modules/animations.js';
 import { initLandingSequence } from './modules/sequence.js';
 import { initMechanicsSequences } from './modules/mechanics-sequence.js';
+import { initBossesShowcase } from './modules/bosses-showcase.js';
 
 if ('scrollRestoration' in history) {
   history.scrollRestoration = 'manual';
@@ -21,6 +22,7 @@ document.addEventListener('DOMContentLoaded', async () => {
     initNavigation();
     initLandingSequence();
     initMechanicsSequences();
+    initBossesShowcase();
   });
 
   initPreloader(async () => {

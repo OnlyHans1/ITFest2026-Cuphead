@@ -195,31 +195,54 @@ export function initScrollAnimations() {
       }, '-=0.5');
   });
 
-  const bossCards = document.querySelectorAll('.boss-card');
-  bossCards.forEach((card, index) => {
+  const bossSection = document.getElementById('bosses');
+  if (bossSection) {
     const bTl = gsap.timeline({
       scrollTrigger: {
-        trigger: card,
-        start: 'top 85%',
+        trigger: '#bosses',
+        start: 'top 75%',
         toggleActions: 'play none none none'
       }
     });
 
     bTl
-      .from(card, {
-        y: 45,
+      .from('.boss-dossier-card', {
+        scale: 0.92,
+        y: 40,
         opacity: 0,
-        duration: 0.75,
-        delay: (index % 3) * 0.1,
+        duration: 0.85,
         ease: 'power3.out'
       })
-      .from(card.querySelector('.boss-avatar-wrap'), {
-        scale: 0.65,
+      .from('#boss-stage-stamp', {
+        scale: 2.8,
+        rotation: -40,
         opacity: 0,
-        duration: 0.75,
+        duration: 0.45,
+        ease: 'power4.in'
+      }, '-=0.35')
+      .from('.boss-portrait-frame', {
+        scale: 0.65,
+        rotation: -8,
+        opacity: 0,
+        duration: 0.65,
         ease: 'back.out(1.8)'
-      }, '-=0.4');
-  });
+      }, '-=0.3')
+      .from('.boss-details-pane > *', {
+        y: 20,
+        opacity: 0,
+        duration: 0.45,
+        stagger: 0.08,
+        ease: 'power2.out'
+      }, '-=0.35')
+      .from('.boss-reel-item', {
+        scale: 0.7,
+        y: 20,
+        opacity: 0,
+        duration: 0.45,
+        stagger: 0.04,
+        ease: 'back.out(1.6)'
+      }, '-=0.3');
+  }
 
   const gameplayCards = document.querySelectorAll('.gameplay-card');
   gameplayCards.forEach((card, index) => {

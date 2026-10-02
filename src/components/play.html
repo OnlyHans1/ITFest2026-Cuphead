@@ -4,82 +4,46 @@
 
   <div class="container section-content-relative">
     <div class="section-header play-header">
-      <span class="section-tag">Official Release &amp; Web Showcase</span>
-      <h2 class="section-title play-main-title">READY TO ROLL THE DICE?</h2>
+      <span class="section-tag">Beli &amp; Mainkan Sekarang</span>
+      <h2 class="section-title play-main-title">SIAP MENGHADAPI TANTANGAN?</h2>
       <p class="section-desc play-main-desc">
-        Mainkan petualangan Cuphead sekarang juga secara online atau dapatkan versi resminya langsung melalui Steam:
+        Dapatkan game resmi Cuphead dan ekspansi The Delicious Last Course di platform favoritmu sekarang juga:
       </p>
     </div>
 
     <div class="play-cta-duo">
-      <button type="button" id="btn-play-trigger" class="btn-cta-award btn-cta-award--primary" aria-haspopup="dialog" aria-controls="play-video-modal">
-        <span class="btn-cta-icon-wrapper">
-          <svg class="btn-play-svg" viewBox="0 0 24 24" width="22" height="22" fill="currentColor">
-            <polygon points="6,3 20,12 6,21" />
-          </svg>
+      <a href="https://www.xbox.com/en-US/games/store/cuphead/9njrx71m5x9p" target="_blank" rel="noopener noreferrer" class="btn-cta-award btn-cta-award--xbox">
+        <span class="btn-cta-icon-wrapper xbox-icon-wrap">
+          <img src="./assets/web/xbox-logo.webp" alt="Xbox Logo" class="btn-cta-brand-img" width="36" height="36">
         </span>
         <span class="btn-cta-text-group">
-          <span class="btn-cta-label">PLAY ONLINE</span>
-          <span class="btn-cta-sub">Interactive 1930s Film Showcase</span>
+          <span class="btn-cta-label">BELI DI XBOX STORE</span>
+          <span class="btn-cta-sub">Xbox Series X|S &bull; Xbox One &bull; Windows</span>
         </span>
-      </button>
+      </a>
 
       <a href="https://store.steampowered.com/app/268910/Cuphead/" target="_blank" rel="noopener noreferrer" class="btn-cta-award btn-cta-award--steam">
         <span class="btn-cta-icon-wrapper steam-icon-wrap">
-          <svg class="btn-steam-svg" viewBox="0 0 24 24" width="24" height="24" fill="currentColor">
-            <path d="M12 2a10 10 0 0 0-10 10c0 4.76 3.32 8.74 7.78 9.74l1.63-2.39a3.5 3.5 0 0 1-.41-.85l-3.32-1.37a5 5 0 0 1-.22-.96l3.52 1.45a3.5 3.5 0 0 1 3.52-.35l2.4-3.5a5 5 0 1 1 5.1 1.76l-3.73 2.56a3.5 3.5 0 0 1-5.11 1.34l-1.64 2.4A10 10 0 1 0 12 2zm6 7a3 3 0 1 0 0 6 3 3 0 0 0 0-6zm0 1a2 2 0 1 1 0 4 2 2 0 0 1 0-4z"/>
-          </svg>
+          <img src="./assets/web/steam-logo.webp" alt="Steam Logo" class="btn-cta-brand-img" width="36" height="36">
         </span>
         <span class="btn-cta-text-group">
-          <span class="btn-cta-label">BELI DI STEAM</span>
-          <span class="btn-cta-sub">Official Store Release &bull; PC / Mac</span>
+          <span class="btn-cta-label">BELI DI STEAM STORE</span>
+          <span class="btn-cta-sub">PC &bull; Mac &bull; Steam Deck Verified</span>
         </span>
       </a>
     </div>
 
     <div class="platforms-pill-bar">
-      <span class="platforms-pill-label">PLATFORMS:</span>
+      <span class="platforms-pill-label">TERSEDIA DI:</span>
       <span class="platforms-list">
-        <span class="platform-tag">Steam</span>
+        <span class="platform-tag">Xbox Series X|S &bull; Xbox One</span>
+        <span class="platform-sep">&bull;</span>
+        <span class="platform-tag">Steam (PC / Mac)</span>
         <span class="platform-sep">&bull;</span>
         <span class="platform-tag">Nintendo Switch</span>
         <span class="platform-sep">&bull;</span>
-        <span class="platform-tag">PlayStation</span>
-        <span class="platform-sep">&bull;</span>
-        <span class="platform-tag">Xbox</span>
+        <span class="platform-tag">PlayStation 4 / 5</span>
       </span>
     </div>
   </div>
-
-
-  <div id="play-video-modal" class="play-modal" aria-hidden="true" role="dialog" aria-modal="true">
-    <div class="play-modal-backdrop" id="play-modal-backdrop"></div>
-    <div class="play-modal-dialog">
-      <div class="play-modal-tv">
-        <div class="play-modal-header">
-          <div class="modal-tape-label">INKWELL PREVIEW THEATRE — REEL NO. 1930</div>
-          <button type="button" id="btn-close-play-modal" class="btn-modal-close" aria-label="Tutup Preview">
-            <span aria-hidden="true">✕ ESC</span>
-          </button>
-        </div>
-        <div class="play-modal-screen">
-          <iframe id="play-modal-iframe"
-            data-src="https://www.youtube-nocookie.com/embed/NN-9SQXoi50?autoplay=1&mute=0&controls=1&modestbranding=1&rel=0&playsinline=1"
-            title="Cuphead Launch Trailer Full Video"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-            allowfullscreen>
-          </iframe>
-          <div class="play-modal-scanlines" aria-hidden="true"></div>
-          <div class="play-modal-vignette" aria-hidden="true"></div>
-        </div>
-        <div class="play-modal-footer">
-          <span class="tv-model-badge">MODEL C-1936 SOUND PROJECTOR</span>
-          <a href="https://store.steampowered.com/app/268910/Cuphead/" target="_blank" rel="noopener noreferrer" class="btn-modal-steam">
-            Beli Full Game di Steam &rarr;
-          </a>
-        </div>
-      </div>
-    </div>
-  </div>
 </section>
-

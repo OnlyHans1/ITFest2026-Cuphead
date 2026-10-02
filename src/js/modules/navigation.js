@@ -144,48 +144,5 @@ export function initNavigation() {
       }
     });
   }, { passive: true });
-
-  initPlayModal();
 }
 
-function initPlayModal() {
-  const trigger = document.getElementById('btn-play-trigger');
-  const modal = document.getElementById('play-video-modal');
-  const backdrop = document.getElementById('play-modal-backdrop');
-  const closeBtn = document.getElementById('btn-close-play-modal');
-  const iframe = document.getElementById('play-modal-iframe');
-
-  if (!trigger || !modal || !iframe) return;
-
-  const videoSrc = iframe.getAttribute('data-src');
-
-  function openModal() {
-    iframe.src = videoSrc;
-    modal.classList.add('is-open');
-    modal.setAttribute('aria-hidden', 'false');
-    document.body.style.overflow = 'hidden';
-  }
-
-  function closeModal() {
-    modal.classList.remove('is-open');
-    modal.setAttribute('aria-hidden', 'true');
-    iframe.src = '';
-    document.body.style.overflow = '';
-  }
-
-  trigger.addEventListener('click', openModal);
-
-  if (closeBtn) {
-    closeBtn.addEventListener('click', closeModal);
-  }
-
-  if (backdrop) {
-    backdrop.addEventListener('click', closeModal);
-  }
-
-  window.addEventListener('keydown', (e) => {
-    if (e.key === 'Escape' && modal.classList.contains('is-open')) {
-      closeModal();
-    }
-  });
-}
